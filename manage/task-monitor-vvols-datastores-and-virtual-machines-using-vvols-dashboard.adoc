@@ -1,0 +1,68 @@
+---
+permalink: manage/task-monitor-vvols-datastores-and-virtual-machines-using-vvols-dashboard.html 
+sidebar: sidebar 
+keywords: monitoring, vvols, datastores, virtual, machines, using, the, vVol, dashboard, 
+summary: 'Puede supervisar el rendimiento y ver los cinco almacenes de datos principales DE SAN VMware Virtual Volumes (vVols) en vCenter Server según los parámetros que seleccione mediante la consola de VVol del dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA).' 
+---
+= Supervise almacenes de datos vVols y máquinas virtuales mediante la consola VVol
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede supervisar el rendimiento y ver los cinco almacenes de datos principales DE SAN VMware Virtual Volumes (vVols) en vCenter Server según los parámetros que seleccione mediante la consola de VVol del dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA).
+
+.Antes de empezar
+* Debe haber habilitado OnCommand API Services 2.1 o posterior si utiliza ONTAP 9.6 o anterior.
++
+No es necesario registrar los Servicios API de OnCommand con VASA Provider para obtener los detalles del informe sobre el almacén de datos SAN vVols o EL almacén de datos DE SAN vVols VM para ONTAP 9.7.
+
++
+https://mysupport.netapp.com/site/["Soporte de NetApp"^]
+
+* Debe utilizar ONTAP 9.3 o una versión posterior para su sistema de almacenamiento.
+
+
+link:reference-verify-vvol-dashboard-data-requirements.html["Requisitos de datos de la consola de VVol"]
+
+.Acerca de esta tarea
+Los datos de IOPS que proporciona ONTAP se redondean y se muestran en el panel de VVol. Puede haber una diferencia entre el valor de IOPS real que proporciona ONTAP y el valor de IOPS que se muestra en la consola de VVol.
+
+[NOTE]
+====
+* Si registra por primera vez los servicios API de OnCommand, puede ver todos los datos de métricas de rendimiento para los almacenes de datos SAN vVols en la consola de VVol solo después de 15 a 30 minutos.
+* Los datos de la consola de VVol se actualizan periódicamente en un intervalo de 10 minutos.
+* Si ha añadido, modificado o eliminado un sistema de almacenamiento de la instancia de vCenter Server, es posible que no note ningún cambio en los datos de la consola de vVols durante algún tiempo.
++
+Esto se debe a que los servicios API de OnCommand tardan tiempo en obtener métricas actualizadas de ONTAP.
+
+* El valor de IOPS total que se muestra en el portlet *Overview* de la consola VVol no es un valor acumulativo del valor de IOPS de lectura y del valor de IOPS de escritura.
++
+IOPS de lectura, IOPS de escritura y total IOPS son métricas independientes que proporcionan los servicios de API de OnCommand. Si hay una diferencia entre el valor de IOPS total y el valor de IOPS acumulativo (valor de IOPS de lectura + valor de IOPS de escritura) que proporcionan los servicios de API de OnCommand, se observa la misma diferencia en los valores de IOPS en la consola de VVol.
+
+
+
+====
+.Pasos
+. En la página de inicio de vSphere Client, haga clic en *Virtual Storage Console*.
+. Seleccione la instancia de vCenter Server requerida mediante el menú desplegable *vCenter Server* para ver los almacenes de datos.
+. Haga clic en *Panel de VVol*.
++
+El portlet *datastores* ofrece los siguientes detalles:
+
++
+** El número de almacenes de datos vVols gestionados por VASA Provider en la instancia de vCenter Server
+** Los cinco almacenes de datos vVols principales según el uso de recursos y los parámetros de rendimiento, puede cambiar la lista de los almacenes de datos en función del espacio utilizado, las IOPS o la latencia y del orden necesario.
+
+
+. Vea los detalles de las máquinas virtuales utilizando el portlet *Máquinas virtuales*.
++
+El portlet *Máquinas virtuales* proporciona los siguientes detalles:
+
++
+** Número de máquinas virtuales que utilizan almacenes de datos ONTAP en vCenter Server
+** Las cinco máquinas virtuales más importantes basadas en IOPS, latencia, rendimiento, capacidad dedicada, tiempo activo, Y el espacio lógico se puede personalizar cómo se enumeran las cinco máquinas virtuales principales en la consola de VVol.
+
+
+

@@ -1,0 +1,14 @@
+---
+permalink: deploy/concept-requirements-for-deploying-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: requirements, deploying, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'Debe conocer los requisitos de implementación antes de implementar el dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA), y debe decidir las tareas que desea realizar. Según sus tareas, puede elegir el modelo de puesta en marcha para poner en marcha el dispositivo virtual para VSC, proveedor VASA y SRA.' 
+---
+= Requisitos para poner en marcha el dispositivo virtual para VSC, proveedor VASA y SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe conocer los requisitos de implementación antes de implementar el dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA), y debe decidir las tareas que desea realizar. Según sus tareas, puede elegir el modelo de puesta en marcha para poner en marcha el dispositivo virtual para VSC, proveedor VASA y SRA.

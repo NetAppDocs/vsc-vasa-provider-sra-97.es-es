@@ -1,0 +1,49 @@
+---
+permalink: manage/reference-verify-vvol-dashboard-data-requirements.html 
+sidebar: sidebar 
+keywords: vVol, dashboard, data, requirements, 
+summary: 'Debe verificar algunos requisitos importantes del panel de VVol para mostrar detalles dinámicos de los almacenes de datos de VMware Virtual Volumes (vVols) y las máquinas virtuales.' 
+---
+= Requisitos de datos de la consola de VVol
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe verificar algunos requisitos importantes del panel de VVol para mostrar detalles dinámicos de los almacenes de datos de VMware Virtual Volumes (vVols) y las máquinas virtuales.
+
+En la siguiente tabla se presenta una descripción general de lo que se debe comprobar si la consola de VVol no muestra las métricas de rendimiento para los almacenes de datos DE SAN vVols aprovisionados y las máquinas virtuales.
+
+[cols="1a,1a"]
+|===
+| Consideraciones | Descripción 
+
+
+ a| 
+Implementación por primera vez de servicios API de OnCommand
+ a| 
+* Si tiene clústeres de ONTAP 9.6 o anteriores, utiliza OnCommand API Services 2.1 o una versión posterior.
++
+No es necesario que los servicios API de OnCommand estén registrados con proveedor de VASA si utiliza ONTAP 9.7 y una versión posterior.
+
+* Debe haber seguido las instrucciones de instalación proporcionadas en la guía de instalación y configuración de _OnCommand API Services_ después de descargar e instalar OnCommand API Services desde el sitio de soporte de NetApp.
+* Cada instancia de proveedor de VASA debe tener una instancia dedicada de servicios de API de OnCommand.
++
+Los servicios de API de OnCommand no se deben compartir entre varias instancias de proveedor VASA o vCenter Server.
+
+* Los servicios API de OnCommand se ejecutan y se puede acceder a ellos.
+
+
+
+
+ a| 
+Sistema de almacenamiento
+ a| 
+* Utiliza ONTAP 9.3 o una versión posterior.
+* Se utilizan credenciales adecuadas para el sistema de almacenamiento.
+* El sistema de almacenamiento es activo y accesible.
+* La máquina virtual seleccionada debe utilizar al menos un almacén de datos vVols, y las operaciones de I/o se están ejecutando en el disco de la máquina virtual.
+
+
+|===

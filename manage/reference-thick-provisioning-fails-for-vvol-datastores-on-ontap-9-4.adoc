@@ -1,0 +1,42 @@
+---
+permalink: manage/reference-thick-provision-fails-for-vvol-datastores-on-ontap-9-4.html 
+sidebar: sidebar 
+keywords: thick, provisioning, of, VVols, fails, for, ONTAP, 9.4, storage, systems, 
+summary: 'Se produce un error de aprovisionamiento grueso de volúmenes virtuales (VVol) cuando el almacén de datos de VVol no contiene volúmenes FlexVol con aprovisionamiento grueso en un sistema de almacenamiento ONTAP 9.4.' 
+---
+= La provisión densa de VVol produce un error en los sistemas de almacenamiento ONTAP 9.4
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se produce un error de aprovisionamiento grueso de volúmenes virtuales (VVol) cuando el almacén de datos de VVol no contiene volúmenes FlexVol con aprovisionamiento grueso en un sistema de almacenamiento ONTAP 9.4.
+
+
+
+== Problema
+
+Es posible que reciba mensajes de error, como los siguientes, durante el aprovisionamiento de VVol:
+
+[listing]
+----
+com.netapp.vasa.vvol.exceptions.OutOfResourceException: Unable to find a location
+for a vvol of size 4,096 in storage container vvol_nfs_new - Checked 1 places.
+Specific reasons were vvol_nfs_new | Final Score: 0 | 100 -> 0 : FlexVol of
+vvol_nfs_new does not support required storage profile, details [FlexVolume with
+name vvol_nfs_new is not thick provisioned]
+----
+
+
+== Causa
+
+Este error se produce si no hay ningún volumen de FlexVol con aprovisionamiento grueso en el VVol.
+
+
+
+== Solución
+
+. Añada un nuevo volumen de FlexVol que tenga funcionalidad de almacenamiento con thin provisioning habilitado para VVol.
+. Cree una máquina virtual nueva mediante el volumen FlexVol.
+

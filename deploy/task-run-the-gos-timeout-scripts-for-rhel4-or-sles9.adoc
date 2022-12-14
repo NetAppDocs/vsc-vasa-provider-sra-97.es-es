@@ -1,0 +1,87 @@
+---
+permalink: deploy/task-run-the-gos-timeout-scripts-for-rhel4-or-sles9.html 
+sidebar: sidebar 
+keywords: setting, timeout, values, linux, guest, operating, systems, 
+summary: Las secuencias de comandos de tiempo de espera del sistema operativo invitado definen la configuración de tiempo de espera de E/S SCSI para las versiones 4, 5, 6 y 7 de Red Hat Enterprise Linux y las versiones 9, 10 y 11 de SUSE Linux Enterprise Server. Puede especificar un tiempo de espera de 60 segundos o un tiempo de espera de 190 segundos. Debe ejecutar el script cada vez que actualice a una nueva versión de Linux. 
+---
+= Configurar valores de tiempo de espera para sistemas operativos invitados Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las secuencias de comandos de tiempo de espera del sistema operativo invitado definen la configuración de tiempo de espera de E/S SCSI para las versiones 4, 5, 6 y 7 de Red Hat Enterprise Linux y las versiones 9, 10 y 11 de SUSE Linux Enterprise Server. Puede especificar un tiempo de espera de 60 segundos o un tiempo de espera de 190 segundos. Debe ejecutar el script cada vez que actualice a una nueva versión de Linux.
+
+.Antes de empezar
+Debe haber montado la imagen ISO que contiene el script de Linux.
+
+.Pasos
+. Acceda a la consola de la máquina virtual Linux e inicie sesión en una cuenta con privilegios de usuario raíz.
+. Ejecute el `linux_gos_timeout-install.sh` guión.
++
+Para Red Hat Enterprise Linux 4 o SUSE Linux Enterprise Server 9, se muestra un mensaje similar al siguiente:
+
++
+[listing]
+----
+Restarting udev... this may take a few seconds.
+----
++
+[listing]
+----
+Setting I/O Timeout (60s) for /dev/sda - SUCCESS!
+----
++
+Para Red Hat Enterprise Linux 5, Red Hat Enterprise Linux 6 y Red Hat Enterprise Linux 7 se muestra un mensaje similar al siguiente:
+
++
+[listing]
+----
+patching file /etc/udev/rules.d/50-udev.rules
+----
++
+[listing]
+----
+Hunk #1 succeeded at 333 (offset 13 lines).
+----
++
+[listing]
+----
+Restarting udev... this may take a few seconds.
+----
++
+[listing]
+----
+Starting udev: [ OK ]
+----
++
+[listing]
+----
+Setting I/O Timeout (60s) for /dev/sda - SUCCESS!
+----
++
+Para SUSE Linux Enterprise Server 10 o SUSE Linux Enterprise Server 11, aparece un mensaje similar al siguiente:
+
++
+[listing]
+----
+patching file /etc/udev/rules.d/50-udev-default.rules
+----
++
+[listing]
+----
+Hunk #1 succeeded at 114 (offset 1 line).
+----
++
+[listing]
+----
+Restarting udev ...this may take a few seconds.
+----
++
+[listing]
+----
+Updating all available device nodes in /dev:   done
+----
+. Desmonte la imagen ISO.
+

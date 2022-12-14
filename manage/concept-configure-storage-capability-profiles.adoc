@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-configure-storage-capability-profiles.html 
+sidebar: sidebar 
+keywords: creating, storage, capability, profiles, provider 
+summary: EL proveedor VASA para ONTAP permite crear perfiles de funcionalidad de almacenamiento y asignarlos a su almacenamiento. Esto le ayuda a mantener la coherencia en todo el almacenamiento. También puede usar VASA Provider para comprobar el cumplimiento de normativas entre el almacenamiento y los perfiles de capacidades de almacenamiento. 
+---
+= Crear perfiles de funcionalidad del almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+EL proveedor VASA para ONTAP permite crear perfiles de funcionalidad de almacenamiento y asignarlos a su almacenamiento. Esto le ayuda a mantener la coherencia en todo el almacenamiento. También puede usar VASA Provider para comprobar el cumplimiento de normativas entre el almacenamiento y los perfiles de capacidades de almacenamiento.

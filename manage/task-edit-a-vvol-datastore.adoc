@@ -1,0 +1,41 @@
+---
+permalink: manage/task-edit-a-vvol-datastore.html 
+sidebar: sidebar 
+keywords: editing, a, vvols, datastore, 
+summary: 'Es posible editar un almacén de datos existente de VMware Virtual Volumes (vVols) para cambiar el perfil de funcionalidad de almacenamiento predeterminado. El perfil de capacidad de almacenamiento predeterminado se utiliza principalmente para vVols de intercambio.' 
+---
+= Editar un almacén de datos vVols
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible editar un almacén de datos existente de VMware Virtual Volumes (vVols) para cambiar el perfil de funcionalidad de almacenamiento predeterminado. El perfil de capacidad de almacenamiento predeterminado se utiliza principalmente para vVols de intercambio.
+
+.Pasos
+. En la página vSphere Client, haga clic en *hosts and Clusters*.
+. Haga clic con el botón derecho en el almacén de datos y seleccione MENU:NetApp VSC[Edit Properties of VVol Datastore].
++
+Se muestra el cuadro de diálogo Editar propiedades del almacén de datos de VVol.
+
+. Realice los cambios necesarios.
++
+Puede cambiar el perfil de funcionalidad de almacenamiento predeterminado para el almacén de datos vVols seleccionando un perfil nuevo en la lista desplegable del cuadro de diálogo Edit VVol Datastore. También puede cambiar el nombre y la descripción del almacén de datos vVols.
+
++
+[NOTE]
+====
+No es posible cambiar la instancia de vCenter Server donde se encuentra el almacén de datos vVols.
+
+====
+. Cuando haya realizado los cambios, haga clic en *Aceptar*.
++
+Un cuadro de mensaje pregunta si desea actualizar el almacén de datos vVols.
+
+. Haga clic en *Aceptar* para aplicar los cambios.
++
+Aparece un mensaje de éxito para informar de que el almacén de datos vVols se ha actualizado.
+
+

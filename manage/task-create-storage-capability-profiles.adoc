@@ -1,0 +1,127 @@
+---
+permalink: manage/task-create-storage-capability-profiles.html 
+sidebar: sidebar 
+keywords: configuring, storage, capability, profiles, 
+summary: Puede usar VSC para crear manualmente perfiles de funcionalidades de almacenamiento, generar automáticamente un perfil según las funcionalidades de un almacén de datos o modificar un perfil para satisfacer sus requisitos. 
+---
+= Configurar perfiles de funcionalidad de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar VSC para crear manualmente perfiles de funcionalidades de almacenamiento, generar automáticamente un perfil según las funcionalidades de un almacén de datos o modificar un perfil para satisfacer sus requisitos.
+
+.Antes de empezar
+Registró la instancia de proveedor de VASA en Virtual Storage Console para VMware vSphere.
+
+.Acerca de esta tarea
+Después de configurar un perfil, puede editar el perfil según sea necesario.
+
+.Pasos
+. En la página Virtual Storage Console (VSC) *Inicio*, haga clic en *Perfiles de capacidad de almacenamiento*.
+. Cree un perfil o edite uno existente, según sea necesario:
++
+[cols="1a,1a"]
+|===
+| Si desea... | Realice lo siguiente... 
+
+
+ a| 
+Cree un perfil
+ a| 
+Haga clic en *image:../media/create-icon.gif[""]*.
+
+
+
+ a| 
+Edite un perfil existente
+ a| 
+Haga clic en el perfil que desea modificar a partir de los perfiles que aparecen en la página Storage Capability Profiles.
+
+|===
++
+[NOTE]
+====
+Para ver los valores asociados con un perfil existente, puede hacer clic en el nombre del perfil en la página Storage Capabilities Profile. A continuación, VASA Provider muestra la página Summary para ese perfil. - No es posible modificar ningún perfil de funcionalidad de almacenamiento existente que se creó antes de el dispositivo virtual 9.6 para VSC, proveedor VASA y SRA.
+
+====
+. Complete las páginas del asistente *Crear perfil de capacidad de almacenamiento* para configurar un perfil o editar valores para modificar un perfil existente.
++
+La mayoría de los campos en este asistente son claros y explicativos. En la siguiente tabla se describen algunos de los campos que pueden requerir explicación.
+
++
+[cols="1a,1a"]
+|===
+| Campo | Explicación 
+
+
+ a| 
+Identificación de múltiples perfiles
+ a| 
+Puede utilizar el campo *Descripción* de la pestaña Nombre y Descripción para describir el propósito del perfil de capacidad de almacenamiento. Proporcionar una buena descripción es útil porque es una buena práctica configurar diferentes perfiles basados en las aplicaciones que se utilizan.
+
+Por ejemplo, una aplicación clave requiere un perfil con funcionalidades que admitan un mayor rendimiento, como una plataforma AFF. Un almacén de datos que se usa para pruebas o entrenamiento puede usar un perfil con una plataforma FAS de menor rendimiento y habilitar todas las funcionalidades de eficiencia del almacenamiento y organización en niveles para controlar los costes.
+
+Si ha habilitado el modo «"vinculado"» para vCenter Server, debe seleccionar la instancia de vCenter Server para la cual desea crear el perfil de funcionalidad de almacenamiento.
+
+
+
+ a| 
+Plataforma
+ a| 
+Puede seleccionar el sistema de almacenamiento para que tenga el tipo de plataforma AFF o FAS. Las opciones de las pantallas siguientes se actualizan en función de la selección del tipo de sistema de almacenamiento.
+
+
+
+ a| 
+Rendimiento
+ a| 
+Puede establecer políticas de calidad de servicio tradicionales para el sistema de almacenamiento mediante la pestaña rendimiento.
+
+** Al seleccionar *Ninguno*, se aplica una política QoS sin límite (infinito) a un VVol de datos.
+** Al seleccionar *Grupo de políticas QoS*, se aplica una política QoS tradicional a un VVol.
++
+Puede establecer el valor para *Max IOPS* y *Min IOPS*, lo que le permite utilizar la funcionalidad QoS. Si selecciona Infinite IOPS, el campo Max IOPS está deshabilitado. Cuando se aplica a un almacén de datos tradicional, se crea una política de calidad de servicio con un valor «Max IOPS» y se asigna a un volumen FlexVol. Cuando se utiliza con un almacén de datos de VVol, se crea una política de calidad de servicio con los valores Max IOPS y Min IOPS para cada VVol de datos.
+
++
+[NOTE]
+====
+*** El valor máximo de IOPS y el valor mínimo de IOPS también se pueden aplicar al volumen FlexVol para un almacén de datos tradicional.
+*** Debe asegurarse de que las métricas de rendimiento no se establezcan por separado en el nivel de máquina virtual de almacenamiento \(SVM\), de un nivel de agregado o de un volumen de FlexVol.
+
+
+====
+
+
+
+
+ a| 
+Atributos de almacenamiento
+ a| 
+Los atributos de almacenamiento que se pueden habilitar en esta pestaña dependen del tipo de almacenamiento que se seleccione en la pestaña Personality.
+
+** Si selecciona el almacenamiento de FAS, puede configurar la reserva de espacio (grueso o fino), habilitar la deduplicación, la compresión y el cifrado.
++
+El atributo de organización en niveles está deshabilitado porque este atributo no se aplica al almacenamiento FAS.
+
+** Si selecciona el almacenamiento de AFF, puede habilitar el cifrado y la organización en niveles.
++
+La deduplicación y la compresión están habilitadas de forma predeterminada en el almacenamiento de AFF y no se pueden deshabilitar. La reserva de espacio se configura como thin y no se puede cambiar a thick (se requiere thin provisioning para la eficiencia y la organización en niveles de agregados).
+
++
+El atributo de organización en niveles permite el uso de volúmenes que forman parte de un agregado habilitado para FabricPool (compatible con VASA Provider para sistemas AFF con ONTAP 9.4 y versiones posteriores). Puede configurar una de las siguientes directivas para el atributo de organización en niveles:
+
+** Cualquiera: Permite el uso de este perfil de funcionalidad de almacenamiento con cualquier volumen de FlexVol, ya se utilice o no Fabric Pool
+** None: Impide que se muevan datos de volúmenes al nivel de capacidad
+** Snapshot-only: Mueve los bloques de datos de usuario de copias Snapshot de volumen que no están asociadas con el sistema de archivos activo al nivel de capacidad
+** Auto: Mueve bloques de datos inactivos de usuarios en las copias Snapshot y el sistema de archivos activo al nivel de capacidad
+
+
+|===
+. Revise sus selecciones en la página *Resumen* y haga clic en *Aceptar*.
++
+Después de crear un perfil, puede volver a la página Storage Mapping para ver qué perfiles coinciden con qué almacenes de datos.
+
+

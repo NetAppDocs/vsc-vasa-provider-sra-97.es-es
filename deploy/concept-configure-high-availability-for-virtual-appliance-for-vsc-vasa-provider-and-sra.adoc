@@ -1,0 +1,32 @@
+---
+permalink: deploy/concept-configure-high-availability-for-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: configuring, high, availability, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'El dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) admite una configuración de alta disponibilidad para ayudar a proporcionar funcionalidad sin interrupciones de VSC, proveedor VASA y SRA en caso de fallo.' 
+---
+= Configure la alta disponibilidad del dispositivo virtual para VSC, proveedores VASA y SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) admite una configuración de alta disponibilidad para ayudar a proporcionar funcionalidad sin interrupciones de VSC, proveedor VASA y SRA en caso de fallo.
+
+El dispositivo virtual para VSC, VASA Provider y SRA confía en la función VMware vSphere (ha) y la función vSphere de tolerancia a fallos (FT) para proporcionar . (HA) permite una rápida recuperación tras interrupciones provocadas por:
+
+* Error del host
+* Fallo de red
+* Fallo de máquina virtual (fallo de SO invitado)
+* Fallo de la aplicación (VSC, proveedor VASA y SRA)
+
+
+No se requiere ninguna configuración adicional en el dispositivo virtual para proporcionar . Solo las instancias de vCenter Server y los hosts ESXi deben configurarse con la función de alta disponibilidad de VMware vSphere o la función vSphere FT en función de sus requisitos. Tanto la alta disponibilidad COMO FT requieren hosts en clúster junto con almacenamiento compartido. FT tiene requisitos y limitaciones adicionales.
+
+Además de la solución de alta disponibilidad de VMware vSphere y la solución VSPHERE FT, el dispositivo virtual también ayuda a mantener en funcionamiento los servicios VSC, proveedores VASA y SRA en todo momento. El proceso de vigilancia del dispositivo virtual supervisa periódicamente los tres servicios y los reinicia automáticamente cuando se detecta cualquier tipo de fallo. Esto ayuda a evitar que se produzcan fallos en las aplicaciones.
+
+[NOTE]
+====
+La alta disponibilidad de vCenter no es compatible con el dispositivo virtual para VSC, el proveedor VASA y SRA.
+
+====

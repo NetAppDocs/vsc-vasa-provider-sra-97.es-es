@@ -1,0 +1,23 @@
+---
+permalink: deploy/concept-configure-vsc-for-vmware-vsphere-environment.html 
+sidebar: sidebar 
+keywords: configuring, your, virtual, storage, console, vmware, vsphere, environment, 
+summary: '(VSC) admite numerosos entornos. Algunas de las funciones de estos entornos pueden requerir una configuración adicional.' 
+---
+= Configure el entorno de Virtual Storage Console para VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+(VSC) admite numerosos entornos. Algunas de las funciones de estos entornos pueden requerir una configuración adicional.
+
+Es posible que tenga que realizar algunas de las siguientes tareas para configurar los hosts ESXi, los sistemas operativos invitados y VSC:
+
+* Compruebe la configuración del host ESXi, incluida la configuración UNMAP
+* Adición de valores de tiempo de espera para sistemas operativos invitados
+* Regeneración del certificado SSL de VSC
+* Creación de perfiles de capacidad de almacenamiento y alarmas de umbral
+* Modificar el archivo de preferencias para permitir el montaje de almacenes de datos en subredes diferentes
+

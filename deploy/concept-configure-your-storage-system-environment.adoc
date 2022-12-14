@@ -1,0 +1,34 @@
+---
+permalink: deploy/concept-configure-your-storage-system-environment.html 
+sidebar: sidebar 
+keywords: configuring, virtual, storage, console, vmware, vsphere, storage, system, environment, 
+summary: 'Virtual Storage Console para VMware vSphere ofrece un único mecanismo para detectar sistemas de almacenamiento y configurar las credenciales de almacenamiento. Las credenciales proporcionan los permisos de ONTAP necesarios para que los usuarios de Virtual Storage Console (VSC) puedan realizar tareas mediante los sistemas de almacenamiento.' 
+---
+= Configure el entorno del sistema de almacenamiento de Virtual Storage Console para VMware vSphere
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console para VMware vSphere ofrece un único mecanismo para detectar sistemas de almacenamiento y configurar las credenciales de almacenamiento. Las credenciales proporcionan los permisos de ONTAP necesarios para que los usuarios de Virtual Storage Console (VSC) puedan realizar tareas mediante los sistemas de almacenamiento.
+
+Para poder mostrar y gestionar los recursos de almacenamiento, VSC debe detectar los sistemas de almacenamiento. Como parte del proceso de detección, debe suministrar las credenciales de ONTAP para los sistemas de almacenamiento. Estos son los privilegios (o roles) asociados con el nombre de usuario y la pareja de contraseñas que se asignan a cada sistema de almacenamiento. Estas parejas de nombres de usuario y contraseñas utilizan el control de acceso basado en roles (RBAC) de ONTAP y deben configurarse desde ONTAP. No puede cambiar estas credenciales desde VSC. Puede definir roles de RBAC de ONTAP mediante .
+
+[NOTE]
+====
+Si inicia sesión como administrador, tiene automáticamente todos los privilegios de ese sistema de almacenamiento.
+
+====
+Cuando se añade un sistema de almacenamiento a VSC, debe suministrar una dirección IP para el sistema de almacenamiento, así como el nombre de usuario y la pareja de contraseñas que estén asociados con ese sistema. Se pueden configurar credenciales predeterminadas que VSC utilizará durante el proceso de detección del sistema de almacenamiento, o bien se pueden introducir credenciales manualmente cuando se detecte el sistema de almacenamiento. Los detalles del sistema de almacenamiento que se añaden a VSC se insertan automáticamente en las extensiones que habilitan en la puesta en marcha. No es necesario añadir manualmente el almacenamiento al proveedor VASA y al adaptador de replicación de almacenamiento (SRA). Tanto VSC como SRA admiten la adición de credenciales a nivel de clúster y a nivel de clúster. El proveedor DE VASA de solo admite credenciales en el nivel del clúster para añadir sistemas de almacenamiento.
+
+Si el entorno incluye varias instancias de vCenter Server, cuando se añade un sistema de almacenamiento a VSC desde la página Storage Systems, el cuadro de diálogo Add Storage System muestra un cuadro de diálogo vCenter Server donde puede especificar la instancia de vCenter Server que se debe añadir el sistema de almacenamiento. Si añade un sistema de almacenamiento haciendo clic con el botón derecho en el nombre de un centro de datos, no tiene la opción de especificar una instancia de vCenter Server debido a que el servidor ya está asociado a ese centro de datos.
+
+La detección se realiza de una de las siguientes maneras. En cada caso, debe proporcionar credenciales para todos los sistemas de almacenamiento recién detectados.
+
+* Cuando se inicia el servicio VSC, VSC inicia su proceso de detección automático en segundo plano.
+* Puede hacer clic en el botón *REDISCOVER All* de la página Storage Systems, o en un host o centro de datos para seleccionarlo en el menú *acciones* (menú:acciones[NetApp VSC > Actualizar datos de almacenamiento y host]). También puede hacer clic en *DESCUBRIR* en la ficha Introducción de la sección Descripción general.
+
+
+Todas las funciones de VSC requieren permisos específicos para realizar tareas. Es posible limitar qué pueden hacer los usuarios según las credenciales asociadas con el rol ONTAP. Todos los usuarios que tienen el mismo nombre de usuario del sistema de almacenamiento y la pareja de contraseñas comparten el mismo conjunto de credenciales del sistema de almacenamiento y pueden ejecutar las mismas operaciones.

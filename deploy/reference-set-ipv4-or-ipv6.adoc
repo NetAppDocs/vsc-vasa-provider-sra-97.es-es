@@ -1,0 +1,54 @@
+---
+permalink: deploy/reference-set-ipv4-or-ipv6.html 
+sidebar: sidebar 
+keywords: setting, ipv4, ipv6, 
+summary: Hay una nueva opción añadida al archivo de preferencias kaminoprefs.xml que puede configurarse de modo que habilite la compatibilidad con IPv4 o IPv6 para todos los sistemas de almacenamiento añadidos a VSC. 
+---
+= Establezca IPv4 o IPv6
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Hay una nueva opción agregada al archivo de preferencias ``kaminoprefs.xml``Que puede configurar para habilitar la compatibilidad con IPv4 o IPv6 en todos los sistemas de almacenamiento añadidos a VSC.
+
+* La `default.override.option.provision.mount.datastore.address.family` el parámetro se ha agregado a la `kaminoprefs.xml` Archivo de preferencias para establecer un protocolo LIF de datos preferido para el aprovisionamiento del almacén de datos.
++
+Esta preferencia es aplicable para todos los sistemas de almacenamiento añadidos a VSC.
+
+* Los valores de la nueva opción son `IPv4`, `IPv6`, y. `NONE`.
+* De forma predeterminada, el valor se establece en `NONE`.
+
+
+[cols="1a,1a"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+NINGUNO
+ a| 
+* El aprovisionamiento ocurre mediante el mismo tipo de LIF de datos IPv6 o IPv4 que el tipo de clúster o LIF de gestión utilizado para añadir el almacenamiento.
+* Si el mismo tipo de dirección IPv6 o IPv4 de LIF de datos no está presente en , el aprovisionamiento se realiza a través del otro tipo de LIF de datos, si está disponible.
+
+
+
+
+ a| 
+IPv4
+ a| 
+* El aprovisionamiento se realiza utilizando la LIF de datos IPv4 en el seleccionado .
+* Si el no tiene una LIF de datos IPv4, el aprovisionamiento se realiza a través de la LIF de datos IPv6, si está disponible en .
+
+
+
+
+ a| 
+IPv6
+ a| 
+* El aprovisionamiento se realiza utilizando la LIF de datos IPv6 en el seleccionado .
+* Si el no tiene una LIF de datos IPv6, el aprovisionamiento se realiza a través de la LIF de datos IPv4, si está disponible en .
+
+
+|===

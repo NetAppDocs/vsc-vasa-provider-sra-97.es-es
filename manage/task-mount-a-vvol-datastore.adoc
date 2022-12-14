@@ -1,0 +1,30 @@
+---
+permalink: manage/task-mount-a-vvol-datastore.html 
+sidebar: sidebar 
+keywords: Mount, vVol, datastore, 
+summary: 'Puede montar un almacén de datos VMware Virtual Volumes \(vVols\) en uno o varios hosts adicionales mediante el cuadro de diálogo Mount VVol Datastore. El montaje del almacén de datos permite acceder al almacenamiento a hosts adicionales.' 
+---
+= Monte un almacén de datos vVols
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un almacén de datos VMware Virtual Volumes (vVols) se puede montar en uno o varios hosts adicionales mediante el cuadro de diálogo Mount VVol Datastore. El montaje del almacén de datos permite acceder al almacenamiento a hosts adicionales.
+
+.Pasos
+. En la página Home* de vSphere Client, haga clic en *hosts and Clusters*.
+. Haga clic con el botón derecho en el almacén de datos que desea montar y, a continuación, seleccione MENU:NetApp VSC[Mount VVol Datastore].
++
+Aparece el cuadro de diálogo *Mount VVol Datastore*, que proporciona una lista de los hosts disponibles en el centro de datos donde puede montar el almacén de datos. La lista no incluye los hosts donde el almacén de datos ya se ha montado, los hosts que ejecutan ESX 5.x o anterior, o los hosts que no admiten el protocolo del almacén de datos. Por ejemplo, si un host no es compatible con el protocolo FC, no puede montar un almacén de datos FC en el host.
+
++
+[NOTE]
+====
+Aunque vSphere Client proporcione un cuadro de diálogo de montaje para vCenter Server, siempre debe usar el cuadro de diálogo VASA Provider de esta operación. EL proveedor DE VASA configura el acceso a los sistemas de almacenamiento que ejecutan el software ONTAP.
+
+====
+. Seleccione el host en el que desea montar el almacén de datos y, a continuación, haga clic en *Aceptar*.
+

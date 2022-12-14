@@ -1,0 +1,46 @@
+---
+permalink: deploy/reference-metrocluster-configurations-supported-by-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: metroCluster, configurations, supported, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'El dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) admiten entornos que usan configuraciones de IP y FC de MetroCluster para ONTAP. La mayor parte de este soporte es automático. Sin embargo, es posible que note algunas diferencias cuando utiliza un entorno de MetroCluster con VSC y VASA Provider.' 
+---
+= Configuraciones de MetroCluster compatibles con el dispositivo virtual para VSC, proveedor VASA y SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) admiten entornos que usan configuraciones de IP y FC de MetroCluster para ONTAP. La mayor parte de este soporte es automático. Sin embargo, es posible que note algunas diferencias cuando utiliza un entorno de MetroCluster con VSC y VASA Provider.
+
+
+
+== Configuraciones de MetroCluster y VSC
+
+Debe asegurarse de que VSC detecte las controladoras del sistema de almacenamiento en el sitio primario y en el sitio secundario. Generalmente, VSC detecta automáticamente las controladoras de almacenamiento. Si utiliza una LIF de gestión de clústeres, es una buena práctica verificar que VSC ha detectado los clústeres en ambos sitios. De lo contrario, puede añadir manualmente las controladoras de almacenamiento a VSC. También puede modificar el nombre de usuario y las parejas de contraseñas que utiliza VSC para conectarse a las controladoras de almacenamiento.
+
+Cuando se produce una conmutación, el sitio secundario toma el control. Estos contienen el sufijo "'-mc" adjunto a sus nombres. Si se produce una operación de switchover mientras se realizan operaciones como el aprovisionamiento de un almacén de datos, el nombre del almacén de datos donde reside se cambia para incluir el sufijo "'-mc'". Este sufijo se descarta cuando se produce la conmutación de regreso, y el en el sitio principal se reanuda el control.
+
+[NOTE]
+====
+Si ha añadido directamente la configuración de MetroCluster a VSC, tras la conmutación, no se verá reflejado el cambio en el nombre de SVM (la adición del sufijo "'-mc"). El resto de las operaciones de conmutación se siguen ejecutando con normalidad.
+
+====
+Cuando se produce una conmutación de sitios o una conmutación de estado, VSC puede tardar unos minutos en detectar y detectar los clústeres automáticamente. Si esto sucede mientras realiza una operación VSC, como el aprovisionamiento de un almacén de datos, es posible que experimente una demora.
+
+
+
+== Configuraciones de MetroCluster y proveedor VASA
+
+VASA Provider admite automáticamente entornos que utilizan configuraciones MetroCluster. El cambio es transparente en los entornos de proveedores de VASA. No es posible añadir directamente al proveedor de VASA.
+
+[NOTE]
+====
+VASA Provider no incorpora el sufijo "'-mc" a los nombres de en el sitio secundario después de una conmutación por sitios.
+
+====
+
+
+== Configuraciones de MetroCluster y SRA
+
+El SRA no es compatible con las configuraciones de MetroCluster.

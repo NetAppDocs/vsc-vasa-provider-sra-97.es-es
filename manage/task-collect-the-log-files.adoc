@@ -1,0 +1,33 @@
+---
+permalink: manage/task-collect-the-log-files.html 
+sidebar: sidebar 
+keywords: collecting, the, log, files, 
+summary: 'Puede recoger archivos de registro de Virtual Storage Console para VMware vSphere en la opción disponible en la interfaz gráfica de usuario (GUI) de VSC. Es posible que el soporte técnico le solicite recoger los archivos de registro que sirven como ayuda para la solución de un problema.' 
+---
+= Recoja los archivos de registro
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede recoger archivos de registro de Virtual Storage Console para VMware vSphere en la opción disponible en la interfaz gráfica de usuario (GUI) de VSC. Es posible que el soporte técnico le solicite recoger los archivos de registro que sirven como ayuda para la solución de un problema.
+
+.Acerca de esta tarea
+Si necesita archivos de registro de VASA Provider, puede generar un paquete de soporte desde la pantalla * Vendor Provider Control Panel*. Esta página forma parte de los menús de mantenimiento de proveedor de VASA, a los que se puede acceder desde la consola del dispositivo virtual.
+
+https://vm_ip:9083[]
+
+Puede recopilar los archivos de registro de VSC usando la función «'Export VSC Logs'» de la interfaz gráfica de usuario de VSC. Cuando recoja un bundle de registro de VSC con VASA Provider habilitado, el paquete de registro de VSC también tendrá los registros VP. Los siguientes pasos le indican cómo recoger los archivos de registro de VSC:
+
+.Pasos
+. En la página de inicio de Virtual Storage Console, haga clic en menu:Configuration[Export VSC Logs].
++
+Esta operación puede llevar varios minutos.
+
+. Cuando se le solicite, guarde el archivo en el equipo local.
++
+A continuación, puede enviar el `.zip` archivar para soporte técnico.
+
+

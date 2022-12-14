@@ -1,0 +1,41 @@
+---
+permalink: manage/task-configure-alarm-thresholds.html 
+sidebar: sidebar 
+keywords: configuring, alarm, thresholds, 
+summary: Puede usar VSC para configurar alarmas con el fin de notificarle en qué casos los umbrales de los volúmenes y los umbrales de los agregados alcanzan los límites establecidos. 
+---
+= Configure los umbrales de alarma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar VSC para configurar alarmas con el fin de notificarle en qué casos los umbrales de los volúmenes y los umbrales de los agregados alcanzan los límites establecidos.
+
+.Pasos
+. En la página *Inicio* de Virtual Storage Console, haga clic en *Configuración*.
+. Haga clic en *Configuración de Unified Appliance*.
+. Especifique los valores porcentuales para el campo *umbral casi completo (%)* y el campo *umbral completo (%)* para los umbrales de alarma de volumen y los umbrales de alarma agregados.
++
+Al configurar los valores, debe tener en cuenta la siguiente información:
+
++
+** Al hacer clic en *Restablecer*, se restablecen los umbrales a los valores anteriores.
++
+Al hacer clic en *Restablecer* no se restablecen los umbrales a los valores predeterminados del 80 por ciento para "'casi lleno'" y del 90 por ciento para "'lleno'".
+
+** Existen dos formas de establecer los valores:
++
+*** Puede utilizar las flechas arriba y abajo junto a los valores para ajustar los valores de umbral.
+*** Puede deslizar las flechas en la barra de traza por debajo de los valores para ajustar los valores de umbral.
+
+
+** El valor más bajo que se puede establecer para el campo *umbral completo (%)* para volúmenes y agregados es del 6%.
+
+
+. Después de especificar los valores necesarios, haga clic en *aplicar*.
++
+Debe hacer clic en *aplicar* tanto para la alarma de volumen como para la alarma agregada.
+
+

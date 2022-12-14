@@ -1,0 +1,24 @@
+---
+permalink: manage/concept-what-reports-do.html 
+sidebar: sidebar 
+keywords: what, reports, do, 
+summary: Los informes muestran información detallada sobre los almacenes de datos y las máquinas virtuales, lo que permite revisar e identificar problemas potenciales con los almacenes de datos y las máquinas virtuales en vCenter Server. 
+---
+= ¿Qué informes hacen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los informes muestran información detallada sobre los almacenes de datos y las máquinas virtuales, lo que permite revisar e identificar problemas potenciales con los almacenes de datos y las máquinas virtuales en vCenter Server.
+
+Es posible ver, ordenar y exportar informes.
+
+Virtual Storage Console (VSC) ofrece los siguientes informes predefinidos:
+
+* Informe del almacén de datos
+* Informe de máquinas virtuales
+* Informe de almacén de datos de VVol
+* Informe de máquina virtual de VVol
+

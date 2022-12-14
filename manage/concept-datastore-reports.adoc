@@ -1,0 +1,78 @@
+---
+permalink: manage/concept-datastore-reports.html 
+sidebar: sidebar 
+keywords: datastore, reports, 
+summary: Los informes de almacenes de datos, proporcionan información detallada sobre los almacenes de datos tradicionales y las máquinas virtuales que se crean en estos almacenes de datos. 
+---
+= Informes del almacén de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los informes de almacenes de datos, proporcionan información detallada sobre los almacenes de datos tradicionales y las máquinas virtuales que se crean en estos almacenes de datos.
+
+La consola tradicional le permite revisar e identificar problemas potenciales con los almacenes de datos y las máquinas virtuales en vCenter Server. Es posible ver, ordenar y exportar informes. VCenter Server proporciona el informe de datos para los almacenes de datos tradicionales y las máquinas virtuales.
+
+El almacén de datos ofrece los siguientes informes predefinidos:
+
+* Informe del almacén de datos
+* Informe de máquinas virtuales
+
+
+
+
+== Informe del almacén de datos
+
+El menú Datastore Report ofrece información sobre los siguientes parámetros para los almacenes de datos:
+
+* Nombre del almacén de datos
+* Tipo de almacén de datos: NFS o VMFS
+* Espacio libre
+* El espacio utilizado
+* Espacio total
+* Porcentaje de espacio utilizado
+* Porcentaje de espacio disponible
+* IOPS
++
+El informe muestra la tasa de IOPS del almacén de datos.
+
+* Latencia
++
+El informe muestra la información de latencia del almacén de datos.
+
+
+
+También puede verificar la hora en la que se generó el informe. El menú Datastore Report le permite organizar el informe según sus necesidades y, a continuación, exportar el informe organizado mediante el botón *Exportar a CSV*. Los nombres de los almacenes de datos del informe son enlaces que van a la pestaña Monitor del almacén de datos seleccionado, donde se pueden ver las métricas de rendimiento del almacén de datos.
+
+
+
+== Informe de máquinas virtuales
+
+El menú Virtual Machine Report ofrece las siguientes métricas de rendimiento para todas las máquinas virtuales que utilizan almacenes de datos aprovisionados por VSC para una instancia seleccionada de vCenter Server:
+
+* Nombre de la máquina virtual
+* Capacidad comprometida
++
+El informe muestra el valor de la capacidad comprometida de una máquina virtual.
+
+* Siempre activo
++
+El informe muestra la hora durante la que se enciende la máquina virtual y está disponible en un host ESXi.
+
+* Latencia
++
+El informe muestra la latencia de las máquinas virtuales en todos los almacenes de datos asociados con las máquinas virtuales.
+
+* Estado de alimentación
++
+El informe muestra si la máquina virtual está encendida o apagada.
+
+* Host
++
+El informe muestra los sistemas host en los que está disponible la máquina virtual.
+
+
+
+Cada nombre de máquina virtual del informe es un enlace a la ficha Monitor de la máquina virtual seleccionada. Puede ordenar el informe de la máquina virtual según sus necesidades y exportar el informe en un `.CSV` y guarde el informe en el sistema local. La Marca de hora del informe también se añade al informe guardado.

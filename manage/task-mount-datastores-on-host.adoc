@@ -1,0 +1,28 @@
+---
+permalink: manage/task-mount-datastores-on-host.html 
+sidebar: sidebar 
+keywords: mounting, datastore, on, additional, hosts, 
+summary: El montaje de un almacén de datos permite acceder al almacenamiento a hosts adicionales. El almacén de datos se puede montar en los hosts adicionales después de añadir los hosts al entorno de VMware. 
+---
+= Monte el almacén de datos en hosts adicionales
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El montaje de un almacén de datos permite acceder al almacenamiento a hosts adicionales. El almacén de datos se puede montar en los hosts adicionales después de añadir los hosts al entorno de VMware.
+
+.Antes de empezar
+Debe asegurarse de que se hayan introducido en la los detalles de subred de todas las redes a las que está conectado el servidor ESXi `Kaminoprefs.xml`.
+
+Consulte Habilitar el montaje de almacenes de datos en diferentes subredes en la sección _VSC 9.6 Deployment and Setup Guide_.
+
+.Pasos
+. En la página Home* de vSphere Client, haga clic en *hosts and Clusters*.
+. En el panel de navegación, seleccione el centro de datos que contiene el host.
+. Repita el paso 2 para cualquier host adicional.
+. Haga clic con el botón derecho en el host y seleccione MENU:NetApp VSC[Mount datastores].
+. Seleccione los almacenes de datos que desea montar y, a continuación, haga clic en *Aceptar*.
+

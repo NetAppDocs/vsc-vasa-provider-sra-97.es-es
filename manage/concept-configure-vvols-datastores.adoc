@@ -1,0 +1,71 @@
+---
+permalink: manage/concept-configure-vvols-datastores.html 
+sidebar: sidebar 
+keywords: configuring, vvols, datastores, virtual, volumes 
+summary: 'Es posible usar VASA Provider para ONTAP para crear y gestionar VMware Virtual Volumes (vVols). Puede aprovisionar, editar, montar y eliminar un almacén de datos vVols. También puede agregar almacenamiento al almacén de datos vVols o quitar almacenamiento del almacén de datos vVols. para proporcionar mayor flexibilidad. Puede aprovisionar y gestionar cada máquina virtual y el VMDK relacionado.' 
+---
+= Configurar almacenes de datos vVols
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible usar VASA Provider para ONTAP para crear y gestionar VMware Virtual Volumes (vVols). Puede aprovisionar, editar, montar y eliminar un almacén de datos vVols. También puede agregar almacenamiento al almacén de datos vVols o quitar almacenamiento del almacén de datos vVols. para proporcionar mayor flexibilidad. Puede aprovisionar y gestionar cada máquina virtual y el VMDK relacionado.
+
+Un almacén de datos vVols consta de uno o varios volúmenes FlexVol dentro de un contenedor de almacenamiento (también llamado «almacenamiento de respaldo»). Un equipo virtual puede propagarse por un almacén de datos vVols o varios almacenes de datos vVols.
+
+Aunque puede crear un almacén de datos vVols que tenga varios volúmenes FlexVol, todos los volúmenes FlexVol del contenedor de almacenamiento deben utilizar el mismo protocolo (NFS, iSCSI o FCP) y las mismas máquinas virtuales de almacenamiento (SVM).
+
+No necesita tener conocimientos detallados del almacenamiento subyacente. Por ejemplo, no es necesario identificar un volumen FlexVol específico para que contenga el almacenamiento. Después de añadir volúmenes FlexVol al almacén de datos vVols, el contenedor de almacenamiento gestiona los requisitos de almacenamiento y evita que se produzcan situaciones durante el aprovisionamiento de la máquina virtual, donde se aprovisiona la máquina virtual en un volumen de respaldo sin capacidad.
+
+[NOTE]
+====
+Se recomienda incluir varios volúmenes FlexVol en un almacén de datos vVols para obtener rendimiento y flexibilidad. Dado que los volúmenes FlexVol tienen restricciones en el número de LUN que limitan el número de equipos virtuales, incluidos varios volúmenes FlexVol, le permiten almacenar más equipos virtuales en su almacén de datos vVols.
+
+====
+Como parte del proceso de instalación, debe especificar un perfil de capacidad de almacenamiento para el almacén de datos vVols que va a crear. Es posible seleccionar uno o varios perfiles de funcionalidad de almacenamiento del proveedor VASA para un almacén de datos vVols. También puede especificar un perfil de funcionalidad de almacenamiento predeterminado para todos los almacenes de datos vVols que se creen automáticamente en ese contenedor de almacenamiento.
+
+VASA Provider crea diferentes tipos de vVols durante el aprovisionamiento de máquinas virtuales o la creación de VMDK, según sea necesario.
+
+* *Config*
++
+VMware vSphere utiliza este almacén de datos vVols para almacenar información de configuración.
+
++
+En implementaciones SAN (en bloques), el almacenamiento es un LUN de 4 GB.
+
++
+En una implementación de NFS, se trata de un directorio que contiene archivos de configuración de equipos virtuales, como el archivo vmx y punteros a otros almacenes de datos vVols.
+
+* *Datos*
++
+Este vVols contiene información del sistema operativo y archivos de usuario.
+
++
+En implementaciones SAN, este es un LUN que tiene el tamaño del disco virtual.
+
++
+En una implementación NFS, este es un archivo que tiene el tamaño del disco virtual.
+
+* *Swap*
++
+Este vVols se crea cuando la máquina virtual está encendida y se elimina cuando la máquina virtual está apagada.
+
++
+En implementaciones DE SAN, este es un LUN del tamaño de la memoria virtual.
+
++
+En una implementación de NFS, se trata de un archivo que tiene el tamaño de la memoria virtual.
+
+* *Memoria*
++
+Este vVols se crea si se selecciona la opción Memory snapshots (instantáneas de memoria) al crear la instantánea de VM.
+
++
+En implementaciones DE SAN, este es un LUN del tamaño de la memoria virtual.
+
++
+En una implementación de NFS, se trata de un archivo que tiene el tamaño de la memoria virtual.
+
+

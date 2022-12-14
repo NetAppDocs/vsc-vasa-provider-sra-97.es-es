@@ -1,0 +1,112 @@
+---
+permalink: deploy/task-access-virtual-appliance-maiintenance-console-options.html 
+sidebar: sidebar 
+keywords: accessing, maintenance, console, options, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'Puede gestionar las configuraciones de aplicaciones, sistema y redes mediante la consola de mantenimiento del dispositivo virtual para Virtual Storage Console (VSC), proveedor VASA y Storage Replication Adapter (SRA). Puede cambiar la contraseña de administrador y la contraseña de mantenimiento. También puede generar paquetes de soporte, establecer diferentes niveles de registro, ver y gestionar configuraciones de TLS e iniciar diagnósticos remotos.' 
+---
+= Acceda a las opciones de la consola de mantenimiento del dispositivo virtual para VSC, proveedor VASA y SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede gestionar las configuraciones de aplicaciones, sistema y redes mediante la consola de mantenimiento del dispositivo virtual para Virtual Storage Console (VSC), proveedor VASA y Storage Replication Adapter (SRA). Puede cambiar la contraseña de administrador y la contraseña de mantenimiento. También puede generar paquetes de soporte, establecer diferentes niveles de registro, ver y gestionar configuraciones de TLS e iniciar diagnósticos remotos.
+
+.Antes de empezar
+Debe haber instalado herramientas de VMware después de implementar el dispositivo virtual para VSC, proveedor VASA y SRA.
+
+.Acerca de esta tarea
+* Debe utilizar «mant» como nombre de usuario y la contraseña que configuró durante la implementación para iniciar sesión en la consola de mantenimiento del dispositivo virtual para VSC, VASA Provider y SRA.
+* Debe establecer una contraseña para el usuario «diag» mientras habilita el diagnóstico remoto.
+
+
+.Pasos
+. Acceda a la ficha *Resumen* del dispositivo virtual implementado.
+. Haga clic en image:../media/launch-maintenance-console.gif[""] para iniciar la consola de mantenimiento.
++
+Puede acceder a las siguientes opciones de la consola de mantenimiento:
+
++
+** *Configuración de la aplicación*
++
+Están disponibles las siguientes opciones:
+
++
+*** Mostrar resumen de estado del servidor
+*** Inicie el servicio Virtual Storage Console
+*** Detenga el servicio Virtual Storage Console
+*** Inicie el proveedor VASA y el servicio SRA
+*** Detenga el proveedor VASA y el servicio SRA
+*** Cambie la contraseña de usuario del administrador
+*** Volver a generar certificados
+*** Restablecimiento completo del almacén de claves y los certificados
+*** Restablecimiento manual de la base de datos
+*** Cambie el nivel DE REGISTRO del servicio Virtual Storage Console
+*** Cambiar el nivel DE REGISTRO del proveedor VASA y el servicio SRA
+*** Mostrar la configuración de TLS
+*** Habilite el protocolo TLS
+*** Deshabilite el protocolo TLS
+
+
+** *Configuración del sistema*
++
+Están disponibles las siguientes opciones:
+
++
+*** Reiniciar la máquina virtual
+*** Apagar la máquina virtual
+*** Cambiar la contraseña de usuario "mant"
+*** Cambiar zona horaria
+*** Cambie el servidor NTP
++
+Es posible proporcionar una dirección IPv6 para el servidor NTP.
+
+*** Habilitar/deshabilitar acceso SSH
+*** Aumentar el tamaño de los discos de cárcel (/prisión)
+*** Renovar
+*** Instalación de VMware Tools
+
+
+** *Configuración de red*
++
+Están disponibles las siguientes opciones:
+
++
+*** Mostrar la configuración de la dirección IP
+*** Cambiar la configuración de la dirección IP
++
+Puede usar esta opción para cambiar a IPv6 la dirección IP posterior a la implementación.
+
+*** Mostrar la configuración de búsqueda de nombres de dominio
+*** Cambiar la configuración de búsqueda de nombres de dominio
+*** Mostrar rutas estáticas
+*** Cambiar rutas estáticas
++
+Puede usar esta opción para añadir una ruta IPv6.
+
+*** Confirmar cambios
+*** Hacer ping a un host
++
+Puede usar esta opción para hacer ping a un host IPv6.
+
+*** Restaurar la configuración predeterminada
+
+
+** *Soporte y diagnóstico*
++
+Están disponibles las siguientes opciones:
+
++
+*** Genere el bundle de soporte
+*** Acceder al shell de diagnóstico
+*** Active el acceso de diagnóstico remoto
+
+
+
+
+
+
+*Información relacionada*
+
+xref:concept-virtual-storage-console-and-vasa-provider-log-files.adoc[Archivos de registro de VSC y VASA Provider]

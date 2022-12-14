@@ -1,0 +1,26 @@
+---
+permalink: deploy/concept-migration-of-disaster-recovery-setup-from-windows-to-appliance.html 
+sidebar: sidebar 
+keywords: migration, windows, SRM, appliance, 
+summary: 'Si utiliza Site Recovery Manager (SRM) basado en Windows para la recuperación ante desastres y desea utilizar SRM para la misma configuración, debe migrar su configuración de recuperación ante desastres de Windows a SRM basado en dispositivos.' 
+---
+= Migración de SRM de Windows a SRM Appliance
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza Site Recovery Manager (SRM) basado en Windows para la recuperación ante desastres y desea utilizar SRM para la misma configuración, debe migrar su configuración de recuperación ante desastres de Windows a SRM basado en dispositivos.
+
+Los pasos involucrados en la migración de la recuperación ante desastres son:
+
+. Actualizar el dispositivo virtual existente para VSC, proveedor VASA y SRA con la versión 9.7.1.
++
+link:task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html["Actualice al dispositivo virtual 9.7.1 para VSC, proveedor VASA y SRA"^]
+
+. Migración de adaptador de replicación de almacenamiento basado en Windows a SRA basado en dispositivo.
+. Migración de datos de SRM de Windows a SRM Appliance.
+
+
+https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-F39A84D3-2E3D-4018-97DD-5D7F7E041B43.html["Haga clic aquí"^] para conocer los pasos detallados.

@@ -1,0 +1,44 @@
+---
+permalink: manage/task-pair-protected-and-recovery-sites.html 
+sidebar: sidebar 
+keywords: pairing, protected, recovery, sites, 
+summary: 'Debe emparejar los sitios protegidos y de recuperación creados mediante vSphere Client para habilitar el adaptador de replicación de almacenamiento (SRA) para detectar los sistemas de almacenamiento.' 
+---
+= Sitios protegidos para pares y de recuperación
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe emparejar los sitios protegidos y de recuperación creados mediante vSphere Client para habilitar el adaptador de replicación de almacenamiento (SRA) para detectar los sistemas de almacenamiento.
+
+.Antes de empezar
+* Debe haber instalado Site Recovery Manager (SRM) en los sitios protegidos y de recuperación.
+* Debe haber instalado SRA en los sitios protegidos y de recuperación.
+
+
+.Acerca de esta tarea
+Las configuraciones de dispersión de SnapMirror son las que permiten replicar un volumen de origen en dos destinos diferentes. Esto crea un problema durante la recuperación cuando el SRM necesita recuperar la máquina virtual del destino.
+
+[NOTE]
+====
+El adaptador de replicación de almacenamiento (SRA) no admite las configuraciones de SnapMirror con ventilador fuera.
+
+====
+.Pasos
+. Haga doble clic en *Site Recovery* en la página de inicio de vSphere Client y, a continuación, haga clic en *Sitios*.
+. Haga clic en menú:objetos[acciones > emparejar sitios].
+. En el cuadro de diálogo *Pair Site Recovery Manager Servers*, introduzca la dirección del controlador de servicios de plataforma del sitio protegido y, a continuación, haga clic en *Siguiente*.
+. En la sección *Select vCenter Server*, haga lo siguiente:
++
+.. Compruebe que vCenter Server del sitio protegido aparece como candidato coincidente al emparejar.
+.. Introduzca las credenciales administrativas de SSO y, a continuación, haga clic en *Finalizar*.
+
+
+. Si se le solicita, haga clic en *Sí* para aceptar los certificados de seguridad.
+
+
+.Resultados
+Tanto los sitios protegidos como los de recuperación aparecerán en el cuadro de diálogo objetos.

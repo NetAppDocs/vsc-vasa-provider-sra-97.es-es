@@ -1,0 +1,30 @@
+---
+permalink: manage/task-migrate-existing-virtual-machines-to-7-1-virtual-appliance.html 
+sidebar: sidebar 
+keywords: migrating, virtual, machines, with, older, storage, capability, profiles, 
+summary: 'Si utiliza la versión más reciente del dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA), A continuación, debe migrar sus máquinas virtuales que se aprovisionan con las métricas de calidad de servicio “MaxThroughput MBPS” o “MaxThroughput IOPS” a nuevos almacenes de datos VVol que se aprovisionan con las métricas de calidad de servicio “Max IOPS” de la versión más reciente del dispositivo virtual para VSC, VASA Provider y SRA.' 
+---
+= Migrar máquinas virtuales con perfiles de funcionalidad de almacenamiento más antiguos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza la versión más reciente del dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA), A continuación, debería migrar sus máquinas virtuales que se aprovisionan con las métricas de calidad de servicio «MaxThroughput MBPS» o «MaxThroughput IOPS» a nuevos almacenes de datos VVol aprovisionados con las métricas de calidad de servicio «Max IOPS» de la versión más reciente del dispositivo virtual para VSC, VASA Provider y SRA.
+
+.Acerca de esta tarea
+Con la versión más reciente del dispositivo virtual para VSC, proveedor VASA y SRA, puede configurar las métricas de calidad de servicio para cada máquina virtual o disco de máquina virtual (VMDK). Las métricas de calidad de servicio se aplicaron anteriormente en el nivel de volumen ONTAP FlexVol y fueron compartidas por todas las máquinas virtuales o VMDK que se aprovisionaron en ese volumen FlexVol.
+
+A partir de la versión 7.2 del dispositivo virtual para VSC, proveedor VASA y SRA, los indicadores de calidad de servicio de una máquina virtual no se comparten con otras máquinas virtuales.
+
+[NOTE]
+====
+No debe modificar la Política de almacenamiento de máquinas virtuales existente, ya que las máquinas virtuales pueden dejar de cumplir las normativas.
+
+====
+.Pasos
+. Crear almacenes de datos VVol usando un nuevo perfil de funcionalidad de almacenamiento con el valor necesario de «Max IOPS».
+. Cree una normativa de almacenamiento de VM y, a continuación, asigne la nueva normativa de almacenamiento de VM al nuevo perfil de capacidad de almacenamiento.
+. Migre las máquinas virtuales existentes a los almacenes de datos de VVol recién creados mediante la nueva normativa de almacenamiento de equipos virtuales.
+

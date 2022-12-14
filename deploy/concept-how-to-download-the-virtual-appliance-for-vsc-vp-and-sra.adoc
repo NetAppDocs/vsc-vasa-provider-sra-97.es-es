@@ -1,0 +1,20 @@
+---
+permalink: deploy/concept-how-to-download-the-virtual-appliance-for-vsc-vp-and-sra.html 
+sidebar: sidebar 
+keywords: download, the, virtual, appliance, vsc, vasa, provider, sra, 
+summary: Puede descargar el archivo .ova del dispositivo virtual para Virtual Storage Console, VASA Provider y Storage Replication Adapter de la . 
+---
+= Cómo descargar el dispositivo virtual para VSC, proveedor VASA y SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede descargar la `.ova` Archivo del dispositivo virtual para Virtual Storage Console, VASA Provider y el adaptador de replicación de almacenamiento de .
+
+La `.ova` El archivo incluye VSC, proveedor VASA y SRA. Una vez finalizada la implementación, los tres productos se instalan en el entorno. De forma predeterminada, VSC comienza a trabajar en cuanto decida sobre el modelo de puesta en marcha siguiente y decida si desea habilitar el proveedor VASA y el SRA en función de sus requisitos.
+
+Puede descargar el dispositivo virtual para VSC, proveedor VASA y SRA en https://mysupport.netapp.com/site/products/all/details/vsc/downloads-tab["Sitio de soporte de NetApp"^] mediante la página de descarga del software.
+
+Si desea habilitar el SRA en implementación del dispositivo virtual para VSC, proveedor VASA y SRA, debe haber instalado el plugin de SRA en el servidor del administrador de recuperación del sitio (SRM). Puede descargar el archivo de instalación del complemento SRA en el menú *adaptador de replicación de almacenamiento para ONTAP* de la sección *Descargas de software*.

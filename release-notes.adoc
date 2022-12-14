@@ -1,0 +1,16 @@
+---
+permalink: release-notes.html 
+sidebar: sidebar 
+keywords: release notes, virtual storage console for vmware vsphere 
+summary: Describe las nuevas funciones, las limitaciones y los problemas conocidos del dispositivo virtual para Virtual Storage Console, el proveedor VASA y el adaptador de replicación de almacenamiento para VMware vSphere. 
+---
+= Notas de la versión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Describe las nuevas funciones, las limitaciones y los problemas conocidos del dispositivo virtual para Virtual Storage Console, el proveedor VASA y el adaptador de replicación de almacenamiento para VMware vSphere.
+
+Para obtener más información, consulte https://library.netapp.com/ecm/ecm_download_file/ECMLP2873613["Notas de la versión de Virtual Storage Console para VMware vSphere 9.7.1"^].

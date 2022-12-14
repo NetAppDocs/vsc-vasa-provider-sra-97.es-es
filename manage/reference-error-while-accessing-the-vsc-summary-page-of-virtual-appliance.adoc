@@ -1,0 +1,26 @@
+---
+permalink: manage/reference-error-while-accessing-the-vsc-summary-page-of-virtual-appliance.html 
+sidebar: sidebar 
+keywords: error, while, accessing, the, vsc, summary, page, of, virtual, appliance, 
+summary: 'Es posible que se muestre el mensaje de error /opt/netapp/vscserver/etc/vsc/Performance.json (en ningún archivo o directorio) cuando intente acceder a la página VSC Summary después de implementar el dispositivo virtual para Virtual Storage Console (VSC), VASA Provider y Storage Replication Adapter (SRA).' 
+---
+= Error al acceder a la página VSC Summary de dispositivo virtual
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mensaje de error `/opt/netapp/vscserver/etc/vsc/performance.json (No such file or directory)` Es posible que se muestre cuando intenta acceder a la página VSC Summary después de implementar el dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA).
+
+
+
+== Descripción
+
+Cuando intenta acceder a la consola de VSC después de la implementación del dispositivo virtual para VSC, proveedor VASA y SRA, puede que se produzca un error porque el proceso de inicialización del programador no está completo.
+
+
+
+== Solución alternativa
+
+Debe esperar unos segundos después de la puesta en marcha del dispositivo virtual para que se complete el proceso de inicialización del programador de rendimiento y, a continuación, haga clic en el image:../media/dashboard-refresh-icon.gif[""] para obtener los datos más recientes.

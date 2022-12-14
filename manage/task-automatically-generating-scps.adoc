@@ -1,0 +1,32 @@
+---
+permalink: manage/task-automatically-generate-scps.html 
+sidebar: sidebar 
+keywords: generating, storage, capability, profiles, automatically, 
+summary: EL proveedor DE VASA para ONTAP permite generar automáticamente perfiles de funcionalidad de almacenamiento para los almacenes de datos tradicionales existentes. Cuando se selecciona la opción de generación automática para un almacén de datos, VASA Provider crea un perfil que contiene las capacidades de almacenamiento que utiliza ese almacén de datos. 
+---
+= Generar perfiles de funcionalidad de almacenamiento automáticamente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+EL proveedor DE VASA para ONTAP permite generar automáticamente perfiles de funcionalidad de almacenamiento para los almacenes de datos tradicionales existentes. Cuando se selecciona la opción de generación automática para un almacén de datos, VASA Provider crea un perfil que contiene las capacidades de almacenamiento que utiliza ese almacén de datos.
+
+.Antes de empezar
+* Debe haber registrado la instancia del proveedor de VASA en Virtual Storage Console (VSC).
+* VSC debe haber detectado el almacenamiento.
+
+
+.Acerca de esta tarea
+Después de crear un perfil de funcionalidad de almacenamiento, puede modificar el perfil para incluir más funcionalidades. El asistente *Crear perfil de capacidad de almacenamiento* proporciona información sobre las capacidades que puede incluir en un perfil.
+
+.Pasos
+. En la página de inicio de VSC, haga clic en *asignación de almacenamiento*.
+. Seleccione el almacén de datos de la lista Available.
+. En el menú *acciones*, seleccione *generación automática*.
+. Cuando finalice el proceso de generación automática, actualice la pantalla para ver información sobre el nuevo perfil.
++
+El nuevo perfil aparece en la columna *perfil asociado*. El nombre del nuevo perfil se basa en los recursos del perfil. Si es necesario, puede cambiar el nombre del perfil.
+
+

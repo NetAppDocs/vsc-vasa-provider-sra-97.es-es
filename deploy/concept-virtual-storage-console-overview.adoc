@@ -1,0 +1,80 @@
+---
+permalink: deploy/concept-virtual-storage-console-overview.html 
+sidebar: sidebar 
+keywords: overview, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'El dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) proporciona gestión integral del ciclo de vida de las máquinas virtuales en entornos de VMware que usan los sistemas de almacenamiento de NetApp. Simplifica el almacenamiento y la gestión de datos en entornos VMware al permitir que los administradores gestionen directamente el almacenamiento en vCenter Server.' 
+---
+= Información general del dispositivo virtual para VSC, proveedor VASA y SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) proporciona gestión integral del ciclo de vida de las máquinas virtuales en entornos de VMware que usan los sistemas de almacenamiento de NetApp. Simplifica el almacenamiento y la gestión de datos en entornos VMware al permitir que los administradores gestionen directamente el almacenamiento en vCenter Server.
+
+Con vSphere 6.5, VMware presentó un nuevo cliente basado en HTML5 llamado vSphere Client. La versión 9.6 del dispositivo virtual para VSC, proveedor VASA y SRA solo admite vSphere Client. El dispositivo virtual para VSC, VASA Provider y SRA se integra con vSphere Client y permite utilizar servicios de inicio de sesión único (SSO). En un entorno con varias instancias de vCenter Server, cada instancia de vCenter Server que desea gestionar debe tener su propia instancia registrada de VSC.
+
+Cada componente del dispositivo virtual para VSC, proveedor VASA y SRA proporciona funcionalidades para ayudar a gestionar el almacenamiento de forma más eficiente.
+
+
+
+== Virtual Storage Console (VSC)
+
+VSC le permite realizar las siguientes tareas:
+
+* Añada controladoras de almacenamiento, asigne credenciales y configure permisos para las controladoras de almacenamiento a VSC que tanto el proveedor de SRA como VASA puedan aprovechar
+* Aprovisione los almacenes de datos
+* Supervise el rendimiento de los almacenes de datos y las máquinas virtuales en el entorno vCenter Server
+* Controle el acceso del administrador a los objetos de vCenter Server mediante el control de acceso basado en roles (RBAC) en dos niveles:
++
+** Objetos de vSphere, como máquinas virtuales y almacenes de datos
++
+Estos objetos se gestionan mediante el control de acceso basado en roles de vCenter Server.
+
+** Y el almacenamiento de ONTAP
++
+Los sistemas de almacenamiento se gestionan mediante RBAC de ONTAP.
+
+
+
+* Consulte y actualice la configuración del host de los hosts ESXi conectados al almacenamiento
+
+
+Las operaciones de aprovisionamiento de VSC se benefician de usar el plugin de NFS para VMware vStorage APIs for Array Integration (VAAI). El plugin de NFS para VAAI es una biblioteca de software que integra las bibliotecas de discos virtuales de VMware que están instaladas en el host ESXi. El paquete VAAI de VMware permite descargar determinadas tareas de los hosts físicos a la cabina de almacenamiento. Puede realizar tareas como thin provisioning y la aceleración de hardware en el nivel de cabina para reducir la carga de trabajo en los hosts ESXi. La función de copia de liberación de sobrecarga y reserva de espacio mejoran el rendimiento de las operaciones de VSC.
+
+El plugin de NetApp NFS para VAAI no se envía con VSC. Sin embargo, puede descargar el paquete de instalación del plug-in y obtener las instrucciones para instalar el plug-in desde la .
+
+
+
+== Proveedor de VASA
+
+VASA Provider para ONTAP usa las API VMware vSphere para el reconocimiento del almacenamiento (VASA) para enviar información sobre el almacenamiento que utiliza VMware vSphere al vCenter Server. El dispositivo virtual para VSC, proveedor VASA y SRA, VASA Provider se integra con VSC y VASA Provider le permite realizar las siguientes tareas:
+
+* Aprovisione los almacenes de datos de VMware Virtual Volumes (vVols)
+* Cree y utilice perfiles de capacidades de almacenamiento que definan diferentes objetivos de nivel de servicio (SLO) de almacenamiento para su entorno
+* Compruebe que cumple las normativas entre los almacenes de datos y los perfiles de funcionalidad de almacenamiento
+* Configure las alarmas para que le avise cuando los volúmenes y agregados se aproximen a los límites del umbral
+* Supervise el rendimiento de los discos de máquinas virtuales (VMDK) y las máquinas virtuales que se crean en los almacenes de datos vVols
+
+
+Si utiliza ONTAP 9.6 o una versión anterior, el proveedor de VASA se comunica con el servidor de vCenter mediante las API de VASA y se comunica con ONTAP mediante las API llamadas ZAPI. Para ver la consola de VVol de ONTAP 9.6 y versiones anteriores, debe haber instalado y registrado en vCenter Server. Si utiliza ONTAP 9.7, no es necesario que se registre en el proveedor de VASA para ver la consola de VVol.
+
+[NOTE]
+====
+Para ONTAP 9.6 y versiones anteriores, VASA Provider requiere una instancia dedicada de servicios API de OnCommand. Una instancia de los servicios de API de OnCommand no se puede compartir con varias instancias de proveedor VASA.
+
+====
+
+
+== Adaptador de replicación de almacenamiento (SRA)
+
+Cuando se habilita el SRA y se usa junto con VMware Site Recovery Manager (SRM), es posible recuperar los almacenes de datos y las máquinas virtuales de vCenter Server en caso de fallo. El SRA permite configurar sitios protegidos y sitios de recuperación en el entorno para garantizar la recuperación ante desastres en caso de que se produzca un fallo.
+
+*Información relacionada*
+
+https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62040["Documentación de NetApp: Servicios de API de OnCommand"^]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=61278["Documentación de NetApp: Plugin de NetApp NFS para VMware VAAI"^]
+
+https://mysupport.netapp.com/site/["Soporte de NetApp"^]

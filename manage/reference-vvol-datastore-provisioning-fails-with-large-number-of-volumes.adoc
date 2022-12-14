@@ -1,0 +1,29 @@
+---
+permalink: manage/reference-vvol-datastore-provision-fails-with-large-number-of-volumes.html 
+sidebar: sidebar 
+keywords: VVol, datastore, provisioning, fails, with, large, number, of, volumes, 
+summary: El aprovisionamiento de almacenes de datos de VVol genera un gran número de volúmenes 
+---
+= El aprovisionamiento de almacenes de datos de VVol genera un gran número de volúmenes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+Se produce un error en el aprovisionamiento de almacenes de datos de VVol cuando se intentan aprovisionar almacenes de datos de VVol con más de seis volúmenes.
+
+
+
+== Causa
+
+Se produce un error en el aprovisionamiento de almacenes de datos de VVol debido a tiempos de espera de socket entre VSC y VASA Provider.
+
+
+
+== Acción correctiva
+
+Debe crear un almacén de datos VVol con menos de seis volúmenes o aumentar el tamaño del almacén de datos VVol después del aprovisionamiento con la opción *Expand VVol Datastore*.

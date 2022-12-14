@@ -1,0 +1,49 @@
+---
+permalink: deploy/reference-configure-guest-operating-system-scripts.html 
+sidebar: sidebar 
+keywords: guest, operating, system, configuring, scripts, 
+summary: 'Las imágenes ISO de los scripts del sistema operativo invitado (SO) se montan en Virtual Storage Console para el servidor VMware vSphere. Para utilizar los scripts del sistema operativo invitado para configurar los tiempos de espera de almacenamiento de las máquinas virtuales, se deben montar los scripts desde vSphere Client.' 
+---
+= Configurar los scripts del sistema operativo invitado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las imágenes ISO de los scripts del sistema operativo invitado (SO) se montan en Virtual Storage Console para el servidor VMware vSphere. Para utilizar los scripts del sistema operativo invitado para configurar los tiempos de espera de almacenamiento de las máquinas virtuales, se deben montar los scripts desde vSphere Client.
+
+[cols="1a,1a,1a"]
+|===
+| Tipo de sistema operativo | configuración de tiempo de espera de 60 segundos | configuración de tiempo de espera de 190 segundos 
+
+
+ a| 
+Linux
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/linux_gos_timeout-install.iso`
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/linux_gos_timeout_190-install.iso`
+
+
+
+ a| 
+Windows
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/windows_gos_timeout.iso`
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/windows_gos_timeout_190.iso`
+
+
+
+ a| 
+Solaris
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/solaris_gos_timeout-install.iso`
+ a| 
+`_https_://<appliance_ip>:8143/vsc/public/writable/solaris_gos_timeout_190-install.iso`
+
+|===
+Debe instalar el script a partir de la copia de la instancia de VSC que está registrada en vCenter Server que gestiona la máquina virtual. Si el entorno incluye varias instancias de vCenter Server, debe seleccionar el servidor que contiene la máquina virtual para la cual desea configurar los valores de tiempo de espera de almacenamiento.
+
+Debe iniciar sesión en la máquina virtual y ejecutar el script para configurar los valores de tiempo de espera de almacenamiento.

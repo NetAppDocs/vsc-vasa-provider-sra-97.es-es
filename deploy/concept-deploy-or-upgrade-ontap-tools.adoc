@@ -1,0 +1,18 @@
+---
+permalink: deploy/concept-deploy-or-upgrade-ontap-tools.html 
+sidebar: sidebar 
+keywords: deploying, virtual, appliance, deploying, upgrading, vsc, vasa, provider, sra, 
+summary: Debe descargar y poner en marcha el dispositivo virtual para VSC, proveedor VASA y SRA en un entorno de VMware vSphere y, a continuación, configurar las aplicaciones necesarias en función de las tareas que desee realizar mediante VSC, proveedor VASA y SRAVSC, proveedor VASA y SRA. 
+---
+= Ponga en marcha o actualice VSC, proveedor VASA y SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe descargar y poner en marcha el dispositivo virtual para VSC, proveedor VASA y SRA en un entorno de VMware vSphere y, a continuación, configurar las aplicaciones necesarias en función de las tareas que desee realizar mediante VSC, proveedor VASA y SRAVSC, proveedor VASA y SRA.
+
+*Información relacionada*
+
+xref:task-enable-vasa-provider-for-configuring-virtual-datastores.adoc[Habilite VASA Provider para configurar almacenes de datos virtuales]

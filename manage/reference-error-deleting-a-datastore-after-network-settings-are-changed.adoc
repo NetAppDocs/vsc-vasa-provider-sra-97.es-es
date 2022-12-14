@@ -1,0 +1,47 @@
+---
+permalink: manage/reference-error-deleting-a-datastore-after-network-settings-are-changed.html 
+sidebar: sidebar 
+keywords: delete, datastore,troubleshooting errors 
+summary: Error al eliminar un almacén de datos después de modificar la configuración de red 
+---
+= Error al eliminar un almacén de datos después de modificar la configuración de red
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+Después de cambiar la dirección IP del dispositivo virtual para VSC, proveedor VASA y SRA, se muestra un error mientras utiliza la interfaz de VSC para realizar ciertas operaciones. Por ejemplo, eliminar un almacén de datos o intentar acceder al servidor del proveedor de VASA en el host ESXi.
+
+
+
+== Causa
+
+VCenter Server no utiliza la dirección IP actualizada y sigue usando la dirección IP anterior para realizar llamadas al proveedor VASA.
+
+
+
+== Acción correctiva
+
+Cuando cambie la dirección IP del dispositivo virtual para VSC, proveedores VASA y SRA, debe realizar lo siguiente:
+
+. Cancele el registro de VSC desde vCenter Server.
+. Acceso `https://<vcenter_ip>/mob`.
+. Haga clic en MENU:Content[Extension Manager > Unregister Extension > Unregister all com.netapp.extensions].
+. Inicie sesión en vCenter Server como raíz mediante putty.
+. Cambie al directorio vsphere-client-Serenity con: `cd /etc/vmware/vsphere-client/vc-packages/vsphere-client-serenity`.
+. Detenga el servicio vSphere Client: Mediante `vsphere-client stop`.
+. Quite los directorios que contienen las extensiones de la interfaz de usuario: `rm -rf com.netapp*`
+. Inicie el servicio vSphere Client: Mediante `vsphere-client start`.
++
+Esta operación puede tardar varios minutos en que vSphere Client se reinicie y se inicialice correctamente.
+
+. Cambie al directorio vSphere-ui Serenity con: `/etc/vmware/vsphere-ui/vc-packages/vsphere-client-serenity/`.
+. Detenga la interfaz de usuario de vSphere: Service mediante `vsphere-ui stop`.
+. Quite los directorios que contienen las extensiones de la interfaz de usuario: `rm -rf com.netapp*`
+. Inicie la interfaz de usuario de vSphere mediante: `service-control --start vsphere-ui`.
+

@@ -1,0 +1,147 @@
+---
+permalink: manage/task-provision-datastores.html 
+sidebar: sidebar 
+keywords: provisioning, datastores, 
+summary: 'El aprovisionamiento de un almacén de datos crea un contenedor lógico para las máquinas virtuales y sus discos de máquina virtual (VMDK). Puede aprovisionar un almacén de datos y, a continuación, asociar el almacén de datos a un solo host, a todos los hosts de un clúster o a todos los hosts de un centro de datos.' 
+---
+= Aprovisione los almacenes de datos
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El aprovisionamiento de un almacén de datos crea un contenedor lógico para las máquinas virtuales y sus discos de máquina virtual (VMDK). Puede aprovisionar un almacén de datos y, a continuación, asociar el almacén de datos a un solo host, a todos los hosts de un clúster o a todos los hosts de un centro de datos.
+
+.Antes de empezar
+* Para aprovisionar un almacén de datos en una SVM que está directamente conectada a Virtual Storage Console (VSC), debe haber añadido la SVM a VSC mediante una cuenta de usuario que tenga los privilegios pertinentes, no la cuenta de usuario de vsadmin predeterminada o el rol de vsadmin.
++
+También puede aprovisionar un almacén de datos con un clúster de.
+
+* Debe asegurarse de que se hayan introducido en la los detalles de subred de todas las redes a las que está conectado el servidor ESXi `kaminoprefs.xml`.
++
+Consulte la sección "activación del montaje del almacén de datos en distintas subredes" en _VSC 9.6 Deployment and Setup Guide_.
+
+* Si utiliza NFS o iSCSI y la subred es diferente entre los hosts ESXi y el sistema de almacenamiento, los ajustes de NFS o iSCSI en la `kaminoprefs` El archivo de preferencias debe incluir máscaras de subred de host ESXi.
++
+Este archivo de preferencias también se aplica a la creación de un almacén de datos de VVol. _Virtual Storage Console, Proveedor VASA y Guía de implementación y configuración del adaptador de replicación de almacenamiento para la versión 9.6_ contiene más información sobre el archivo de preferencias y permite el montaje del almacén de datos en distintas subredes.
+
+* Si habilitó VASA Provider y desea especificar perfiles de funcionalidad de almacenamiento para los almacenes de datos de NFS o los almacenes de datos VMFS, debe haber creado uno o varios perfiles de funcionalidad de almacenamiento.
+* Para crear un almacén de datos NFSv4.1, debe haber habilitado NFSv4.1 en el nivel de SVM.
+
+
+.Acerca de esta tarea
+La opción *aprovisionar Datastore* permite especificar un perfil de capacidad de almacenamiento para el almacén de datos. Los perfiles de capacidades de almacenamiento ayudan a especificar objetivos de nivel de servicio (SLO) constantes y simplifican el proceso de aprovisionamiento. Es posible especificar un perfil de funcionalidad de almacenamiento solo si se habilitó el proveedor de VASA. El dispositivo virtual para VSC, proveedor VASA y SRA admite los siguientes protocolos:
+
+* NFSv3 y NFSv4.1
+* VMFS5 y VMFS6
+
+
+VSC puede crear un almacén de datos en un volumen NFS o una LUN:
+
+* Para un almacén de datos NFS, VSC crea un volumen NFS en el sistema de almacenamiento y, a continuación, actualiza las políticas de exportación.
+* Para un almacén de datos VMFS, VSC crea un volumen nuevo (o usa un volumen existente, si seleccionó esa opción) y, a continuación, crea una LUN y un igroup.
+
+
+[NOTE]
+====
+VMware no es compatible con NFSv4.1 con clústeres de almacenes de datos.
+
+====
+Si no se especifica un perfil de funcionalidad de almacenamiento durante el aprovisionamiento, se puede utilizar más adelante la página Storage Mapping para asignar un almacén de datos a un perfil de funcionalidad de almacenamiento.
+
+.Pasos
+. Para acceder al asistente de aprovisionamiento de almacenes de datos, se puede utilizar uno de los siguientes métodos:
++
+[cols="1a,1a"]
+|===
+| Si selecciona de ... | Realice lo siguiente... 
+
+
+ a| 
+*Página de inicio de vSphere Client*
+ a| 
+.. Haga clic en *hosts y clústeres*.
+.. En el panel de navegación, seleccione el centro de datos donde desea aprovisionar el almacén de datos.
+.. Para especificar los hosts para montar el almacén de datos, consulte el paso siguiente.
+
+
+
+
+ a| 
+*Página principal de Virtual Storage Console*
+ a| 
+.. Haga clic en *Descripción general*.
+.. Haga clic en la ficha *Introducción*.
+.. Haga clic en el botón *aprovisionar*.
+.. Haga clic en *examinar* para seleccionar el destino en el que aprovisionar el almacén de datos según el paso siguiente.
+
+
+|===
+. Especifique los hosts en los que desea montar el almacén de datos.
++
+[cols="1a,1a"]
+|===
+| Para hacer que el almacén de datos esté disponible para... | Realice lo siguiente... 
+
+
+ a| 
+Todos los hosts de un centro de datos
+ a| 
+Haga clic con el botón derecho en un centro de datos y seleccione MENU:NetApp VSC[Provision Datastore].
+
+
+
+ a| 
+Todos los hosts de un clúster
+ a| 
+Haga clic con el botón derecho en un clúster de hosts y seleccione MENU:NetApp VSC[Provision Datastore].
+
+
+
+ a| 
+Un solo host
+ a| 
+Haga clic con el botón derecho en un host y seleccione MENU:NetApp VSC[Provision Datastore].
+
+|===
+. Complete los campos del cuadro de diálogo *Nuevo almacén de datos* para crear el almacén de datos.
++
+La mayoría de los campos del cuadro de diálogo son claros y explicativos. En la siguiente tabla se describen algunos de los campos que pueden requerir explicación.
+
++
+[cols="1a,1a"]
+|===
+| Sección | Descripción 
+
+
+ a| 
+Generales
+ a| 
+La sección *General* del cuadro de diálogo *aprovisionamiento de nuevos almacenes de datos* ofrece opciones para introducir el destino, el nombre, el tamaño, el tipo y el protocolo para el nuevo almacén de datos. Puede seleccionar el protocolo *NFS* o *VMFS* para configurar un almacén de datos tradicional. El tipo de almacén de datos de VVol se utiliza para configurar un almacén de datos de VVol. Si VASA Provider está habilitado, entonces también puede decidir si se usarán los perfiles de funcionalidad de almacenamiento. La opción *Datastore cluster* está disponible sólo para almacenes de datos tradicionales. Debe utilizar la opción *Advanced* para especificar el sistema de archivos *VMFS5* o *VMFS6*.
+
+
+
+ a| 
+Sistema de almacenamiento
+ a| 
+Puede seleccionar uno de los perfiles de capacidad de almacenamiento de la lista si ha seleccionado la opción en la sección *General*. Se facilitan los valores recomendados por el sistema de almacenamiento y la máquina virtual de almacenamiento. Pero puede modificar los valores si es necesario.
+
+
+
+ a| 
+Los atributos del almacenamiento
+ a| 
+De forma predeterminada, VSC rellena los valores recomendados para las opciones *agregados* y *volúmenes*. Puede personalizar los valores según sus requisitos. La opción *Space reserve* disponible en el menú *Advanced* también se rellena para obtener resultados óptimos.
+
+
+
+ a| 
+Resumen
+ a| 
+Es posible revisar el resumen de los parámetros especificados para el almacén de datos nuevo.
+
+|===
+. En la sección *Resumen*, haga clic en *Finalizar*.
+

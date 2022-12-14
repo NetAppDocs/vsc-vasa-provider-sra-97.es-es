@@ -1,0 +1,28 @@
+---
+permalink: manage/task-map-storage-policies.html 
+sidebar: sidebar 
+keywords: mapping, storage, policies, 
+summary: Debe asignar las políticas de almacenamiento del sitio protegido a las políticas de almacenamiento del sitio de recuperación para que su plan de recuperación coloque las máquinas virtuales recuperadas en los almacenes de datos adecuados según sus asignaciones. Una vez que el equipo virtual se recupera en el sitio de recuperación, se asigna la política de almacenamiento de VM asignada a la máquina virtual. 
+---
+= Asigne políticas de almacenamiento
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe asignar las políticas de almacenamiento del sitio protegido a las políticas de almacenamiento del sitio de recuperación para que su plan de recuperación coloque las máquinas virtuales recuperadas en los almacenes de datos adecuados según sus asignaciones. Una vez que el equipo virtual se recupera en el sitio de recuperación, se asigna la política de almacenamiento de VM asignada a la máquina virtual.
+
+.Pasos
+. En vSphere Client, haga clic en MENU:Site Recovery[Open Site Recovery].
+. En la ficha *par de sitios*, haga clic en menú:Configurar[asignaciones de directivas de almacenamiento].
+. Seleccione el sitio requerido y, a continuación, haga clic en *Nuevo* para crear una nueva asignación.
+. Seleccione la opción *preparar automáticamente asignaciones para las directivas de almacenamiento con nombres coincidentes* y, a continuación, haga clic en *SIGUIENTE*.
++
+El SRM seleccionará políticas de almacenamiento en el sitio protegido para las cuales existe una política de almacenamiento con el mismo nombre en el sitio de recuperación. No obstante, si selecciona la opción de asignación manual, puede seleccionar varias políticas de almacenamiento.
+
+. Haga clic en *Agregar mapas* y haga clic en *SIGUIENTE*.
+. En la sección *asignación inversa*, seleccione las casillas de verificación necesarias para la asignación y, a continuación, haga clic en *SIGUIENTE*.
+. En la sección *preparado para completar*, revise las selecciones y haga clic en *TERMINAR*.
+

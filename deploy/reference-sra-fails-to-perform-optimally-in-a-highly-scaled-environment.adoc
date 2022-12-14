@@ -1,0 +1,33 @@
+---
+permalink: deploy/reference-sra-fails-to-perform-optimally-in-a-highly-scaled-environment.html 
+sidebar: sidebar 
+keywords: sra, fails, to, perform, optimally, highly, scaled, environment, 
+summary: El SRA no funciona de forma óptima en un entorno muy escalado 
+---
+= El SRA no funciona de forma óptima en un entorno muy escalado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+El SRA no funciona de forma óptima en un entorno muy escalado (si se ejecutan límites máximos especificados por VMware como 250 PGS, 250 RPS, 5000 VM) y es posible que note problemas como un error de tiempo de espera o un tiempo de espera de ONTAP.
+
+
+
+== Acción correctiva
+
+Debe modificar los intervalos de tiempo de espera.
+
+link:reference-configure-storage-replication-adapter-for-highly-scaled-environment.html["La configuración del adaptador de replicación de almacenamiento para entornos de gran escala"]
+
+[NOTE]
+====
+También se puede modificar la configuración de la memoria para el escalado y el rendimiento de su dispositivo virtual para VSC, proveedor VASA y SRA en configuraciones a gran escala.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/tune_memory_settings_of_VM_VSC%2C_VASA_Provider%2C_and_SRA_for_scale_and_performance[]
+
+====

@@ -1,0 +1,40 @@
+---
+permalink: deploy/concept-guidelines-for-using-vsc-standard-roles.html 
+sidebar: sidebar 
+keywords: guidelines, using, VSC standard roles 
+summary: Cuando trabaja con roles estándar de Virtual Storage Console para VMware vSphere, hay ciertas directrices que debe seguir. 
+---
+= Directrices para usar roles estándar de VSC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando trabaja con roles estándar de Virtual Storage Console para VMware vSphere, hay ciertas directrices que debe seguir.
+
+No debe modificar directamente los roles estándar. Si lo hace, VSC sobrescribirá los cambios cada vez que actualice VSC. El instalador actualiza las definiciones de rol estándar cada vez que actualiza VSC. Si hace esto, se garantiza que los roles sean actuales para la versión de VSC, así como para todas las versiones compatibles de vCenter Server.
+
+Sin embargo, puede usar los roles estándar para crear roles que se ajusten a su entorno. Para ello, debe copiar el rol estándar de VSC y editar el rol copiado. Al crear un rol nuevo, puede mantener esta función incluso al reiniciar o actualizar el servicio VSC Windows.
+
+Algunas de las formas de utilizar las funciones estándar de VSC incluyen las siguientes:
+
+* Utilice los roles estándar de VSC para todas las tareas de VSC.
++
+En esta situación, los roles estándar ofrecen todos los privilegios que un usuario necesita para realizar las tareas de VSC.
+
+* Combinar roles para expandir las tareas que un usuario puede realizar.
++
+Si los roles estándar de VSC proporcionan demasiada granularidad en el entorno, puede ampliar los roles creando grupos de nivel superior que contengan varias funciones.
+
++
+Si un usuario tiene que ejecutar otras tareas que no son de VSC y requieren privilegios nativos de vCenter Server adicionales, puede crear una función que incluya esos privilegios y también añadirla al grupo.
+
+* Cree funciones más detalladas.
++
+Si su empresa necesita implementar funciones más restrictivas que las funciones estándar de VSC, puede usar los roles de VSC para crear nuevas funciones.
+
++
+En este caso, debe clonar los roles de VSC necesarios y editar el rol clonado para que solo tenga los privilegios que requiere el usuario.
+
+

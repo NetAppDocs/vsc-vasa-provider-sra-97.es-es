@@ -1,0 +1,22 @@
+---
+permalink: deploy/reference-configure-the-vsc-preferences-files.html 
+sidebar: sidebar 
+keywords: preferences, files, configuring, vsc, preferences, files, 
+summary: 'Los archivos de preferencias contienen una configuración que controla las operaciones de Virtual Storage Console para VMware vSphere. En la mayoría de los casos, no es necesario modificar la configuración de estos archivos. Es útil saber qué archivos de preferencias (VSC) utiliza.' 
+---
+= Configure los archivos de preferencias de VSC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los archivos de preferencias contienen una configuración que controla las operaciones de Virtual Storage Console para VMware vSphere. En la mayoría de los casos, no es necesario modificar la configuración de estos archivos. Es útil saber qué archivos de preferencias (VSC) utiliza.
+
+VSC tiene varios archivos de preferencias. Estos archivos incluyen claves de entrada y valores que determinan el modo en que VSC realiza diversas operaciones. A continuación se muestran algunos de los archivos de preferencias que utiliza VSC:
+
+`/opt/netapp/vscserver/etc/kamino/kaminoprefs.xml`
+
+`/opt/netapp/vscserver/etc/vsc/vscPreferences.xml`
+
+Puede que tenga que modificar los archivos de preferencias en determinadas situaciones. Por ejemplo, si utiliza iSCSI o NFS y la subred es diferente para los hosts ESXi y el sistema de almacenamiento, deberá modificar los archivos de preferencias. Si no modifica la configuración en el archivo de preferencias, el aprovisionamiento del almacén de datos genera errores porque VSC no puede montar el almacén de datos.

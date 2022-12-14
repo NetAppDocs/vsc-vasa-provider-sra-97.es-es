@@ -1,0 +1,39 @@
+---
+permalink: deploy/reference-error-during-fresh-deployment-of-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: error, during, fresh, deployment, virtual, appliance, vsc, vasa, provider, sra, 
+summary: Error al poner en marcha nuevos dispositivos virtuales para VSC, proveedores VASA y SRA 
+---
+= Error al poner en marcha nuevos dispositivos virtuales para VSC, proveedores VASA y SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+Aparece el registro de errores "'Herramientas de vmware OVF vCenter no se encuentra la configuración de vCenter'" durante la puesta en marcha nueva del dispositivo virtual para VSC, proveedor VASA y SRA cuando se utiliza una dirección de vCenter Server IPv4 no válida.
+
+
+
+== Causa
+
+El dispositivo virtual para VSC, proveedor VASA y SRA admite direcciones IPv4 e IPv6. Si el usuario proporciona una dirección IPv4 para vCenter Server que no está disponible en la red y no se proporciona ninguna dirección IPv6, estos mensajes de registro se muestran en la consola de mantenimiento.
+
+
+
+== Acción correctiva
+
+Debe realizar lo siguiente para eliminar el error:
+
+. Inicie sesión en la consola de mantenimiento.
+. Acceder al shell de diagnóstico.
+. Cambiar el usuario de «diag» a «root» utilizando ``sudo su``comando.
+. Edite el archivo de interfaz con vi Editor `vi /etc/network/interface`.
+. Retire la entrada de «'inet6'».
+. Guarde el archivo y reinicie el dispositivo virtual para VSC, proveedor VASA y SRA.
+
+
+Tras reiniciar el dispositivo virtual, no se producen mensajes de error.

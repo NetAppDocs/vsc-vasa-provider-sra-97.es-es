@@ -1,0 +1,64 @@
+---
+permalink: manage/task-edit-esxi-host-settings.html 
+sidebar: sidebar 
+keywords: editing, esxi, host, settings, for, vsc, vasa, provider, and, sra, 
+summary: 'Puede usar la consola del dispositivo virtual para Virtual Storage Console (VSC), proveedor VASA y Storage Replication Adapter (SRA) para editar la configuración del host ESXi.' 
+---
+= Editar la configuración del host ESXi para VSC, proveedor VASA y SRA
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar la consola del dispositivo virtual para Virtual Storage Console (VSC), proveedor VASA y Storage Replication Adapter (SRA) para editar la configuración del host ESXi.
+
+.Antes de empezar
+Debe haber configurado un sistema host ESXi para la instancia de vCenter Server.
+
+.Acerca de esta tarea
+Si existe un problema con la configuración del host ESXi, el problema se muestra en el portlet ESXi Host Systems de la consola. Puede hacer clic en el problema para ver el nombre de host o la dirección IP del host ESXi que tiene el problema.
+
+.Pasos
+. En la página Home* de vSphere Client, haga clic en *Virtual Storage Console*.
+. Edite la configuración del host ESXi.
++
+[cols="1a,1a"]
+|===
+| Si desea editar la configuración del host ESXi desde... | Realice lo siguiente... 
+
+
+ a| 
+Problemas mostrados
+ a| 
+.. Haga clic en el problema en el portlet ESXi Host Systems.
+.. Haga clic en los nombres de hosts ESXi para los que desea modificar la configuración.
+.. Haga clic con el botón derecho en el nombre de host ESXi y haga clic en MENU:VSC de NetApp[Set recommended Values].
+.. Modifique la configuración necesaria y, a continuación, haga clic en *Aceptar*.
+
+
+
+
+ a| 
+Página de inicio de vSphere Client
+ a| 
+.. Haga clic en MENU:Menu[hosts and Clusters].
+.. Haga clic con el botón derecho en el host ESXi requerido y seleccione MENU:VSC de NetApp[Set recommended value].
+.. Haga clic en *Aceptar*.
+
+
+
+
+ a| 
+Portlet sistemas host ESXi
+ a| 
+.. Haga clic en la ficha *Panel tradicional* de la sección Descripción general de VSC.
+.. Haga clic en *Editar configuración del host ESXi*.
+.. Seleccione el nombre de host ESXi en la ficha Configuración del host y estado para los que desea modificar la configuración y haga clic en *SIGUIENTE*.
+.. Seleccione la configuración necesaria en la ficha Configuración de host recomendada y, a continuación, haga clic en *Siguiente*.
+.. Revise su selección en la ficha Resumen y, a continuación, haga clic en *TERMINAR*.
+
+
+|===
+

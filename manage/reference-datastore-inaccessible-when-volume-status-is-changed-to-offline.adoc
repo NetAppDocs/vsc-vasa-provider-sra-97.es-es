@@ -1,0 +1,29 @@
+---
+permalink: manage/reference-datastore-inaccessible-when-volume-status-is-changed-to-offline.html 
+sidebar: sidebar 
+keywords: datastore, inaccessible, when, volume, status, is, changed, to, offline, 
+summary: Almacén de datos inaccesible cuando el estado del volumen cambia a sin conexión 
+---
+= Almacén de datos inaccesible cuando el estado del volumen cambia a sin conexión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+Cuando se desconecta un volumen de un almacén de datos, no se puede acceder al almacén de datos. Aunque el volumen esté en línea, VSC no podrá detectar el almacén de datos. En vSphere Client, si hace clic con el botón derecho en el almacén de datos, no hay acciones de VSC disponibles.
+
+
+
+== Causa
+
+Cuando el volumen se desconecta del clúster, primero se desasocia y, a continuación, se restringe o desconecta. La ruta de unión se quita cuando el volumen se desconecta y este se vuelve inaccesible. Si el volumen se pone en línea, la ruta de unión no está disponible y no está montada en el de forma predeterminada. Este es el comportamiento de ONTAP.
+
+
+
+== Acción correctiva
+
+Debe conectar el volumen en línea y, a continuación, montar manualmente el volumen con la misma ruta de unión que antes. Es posible ejecutar la detección de almacenamiento para ver que se detecta el almacén de datos y que las acciones para el almacén de datos están disponibles.

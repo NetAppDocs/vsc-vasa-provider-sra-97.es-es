@@ -1,0 +1,60 @@
+---
+permalink: deploy/reference-port-requirements-for-vsc.html 
+sidebar: sidebar 
+keywords: port, requirements, vsc 
+summary: 'De forma predeterminada, (VSC) utiliza puertos designados para habilitar la comunicación entre sus componentes, incluidos los sistemas de almacenamiento y VMware vCenter Server. Si tiene firewalls habilitados, debe asegurarse de que los firewalls están configurados para permitir excepciones.' 
+---
+= Requisitos de puertos para VSC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+De forma predeterminada, (VSC) utiliza puertos designados para habilitar la comunicación entre sus componentes, incluidos los sistemas de almacenamiento y VMware vCenter Server. Si tiene firewalls habilitados, debe asegurarse de que los firewalls están configurados para permitir excepciones.
+
+Para firewalls diferentes de Windows, debe otorgar acceso manualmente a puertos específicos que utiliza VSC. Si no concede acceso a estos puertos, aparecerá un mensaje de error como el siguiente.
+
+_No se puede comunicar con el servidor_
+
+VSC utiliza los siguientes puertos TCP bidireccionales predeterminados:
+
+[cols="1a,1a"]
+|===
+| Número de puerto predeterminado | Descripción 
+
+
+ a| 
+9083
+ a| 
+Cuando se encuentra habilitada, tanto el proveedor VASA como el adaptador de replicación de almacenamiento (SRA) utilizan este puerto para comunicarse con vCenter Server. Este puerto también es necesario para obtener los ajustes de TCP/IP.
+
+
+
+ a| 
+443
+ a| 
+Según la forma en que haya configurado sus credenciales, VMware vCenter Server y los sistemas de almacenamiento escuchan las comunicaciones seguras en este puerto.
+
+
+
+ a| 
+8143
+ a| 
+VSC escucha comunicaciones seguras en este puerto.
+
+
+
+ a| 
+7
+ a| 
+VSC envía una solicitud de eco a ONTAP para verificar la accesibilidad, y solo es necesario cuando se añade un sistema de almacenamiento y se puede deshabilitar más adelante.
+
+|===
+[NOTE]
+====
+Debe haber habilitado el protocolo de mensajes de control de Internet (ICMP) antes de implementar el dispositivo virtual para VSC, proveedor VASA y SRA.
+
+Si ICMP está deshabilitado, produce un error en la configuración inicial del dispositivo virtual para VSC, proveedor VASA y SRA, y VSC no puede iniciar los servicios de VSC y proveedor VASA después de la implementación. Es necesario habilitar manualmente los servicios de VSC y proveedor VASA después de la implementación.
+
+====

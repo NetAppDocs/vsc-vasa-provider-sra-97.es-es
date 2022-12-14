@@ -1,0 +1,31 @@
+---
+permalink: manage/task-resize-datastores.html 
+sidebar: sidebar 
+keywords: resizing, datastores, 
+summary: Cambiar el tamaño de un almacén de datos permite aumentar o reducir el almacenamiento de los archivos de los equipos virtuales. Es posible que se deba cambiar el tamaño de un almacén de datos a medida que cambian los requisitos de infraestructura. 
+---
+= Cambie el tamaño de los almacenes de
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cambiar el tamaño de un almacén de datos permite aumentar o reducir el almacenamiento de los archivos de los equipos virtuales. Es posible que se deba cambiar el tamaño de un almacén de datos a medida que cambian los requisitos de infraestructura.
+
+.Antes de empezar
+Si desea que VSC cambie el tamaño del volumen que contiene cuando cambia el tamaño del almacén de datos VMFS, no debe utilizar la opción *usar volumen existente* en la sección *atributos de almacenamiento* al aprovisionar inicialmente el almacén de datos VMFS, sino que permita crear automáticamente un volumen nuevo para cada almacén de datos.
+
+.Acerca de esta tarea
+Puede aumentar o reducir el tamaño de un almacén de datos NFS. Solo puede aumentar el tamaño de un almacén de datos VMFS.
+
+.Pasos
+. En la página Home* de vSphere Client, haga clic en *hosts and Clusters*.
+. En el panel de navegación, seleccione el centro de datos que contiene el almacén de datos.
+. Haga clic con el botón derecho en el almacén de datos y seleccione MENU:NetApp VSC[Resize].
+. En el cuadro de diálogo *Cambiar tamaño*, especifique un tamaño nuevo para el almacén de datos y, a continuación, haga clic en *Aceptar*.
++
+Puede ejecutar la opción *REDISCOVER ALL* en el menú *sistemas de almacenamiento* para actualizar manualmente el listado de almacenamiento en Storage Systems y el panel, o esperar la próxima actualización programada.
+
+

@@ -1,0 +1,77 @@
+---
+permalink: manage/task-configure-array-manager.html 
+sidebar: sidebar 
+keywords: configuring, sra, using, array, manager, 
+summary: 'Puede configurar Storage Replication Adapter (SRA) mediante el asistente Array Manager del Site Recovery Manager (SRM) para permitir interacciones entre SRM y las máquinas virtuales de almacenamiento (SVM).' 
+---
+= Configure el SRA con el administrador de cabinas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar Storage Replication Adapter (SRA) mediante el asistente *Array Manager* del Site Recovery Manager (SRM) para activar las interacciones entre SRM y las máquinas virtuales de almacenamiento (SVM).
+
+.Antes de empezar
+* Debe haber emparejado los sitios protegidos y los sitios de recuperación de SRM.
+* Debe haber configurado el almacenamiento antes de configurar el administrador de cabinas.
+* Debe haber configurado y replicado las relaciones de SnapMirror entre los sitios protegidos y los sitios de recuperación.
+* Debe haber habilitado las LIF de gestión de SVM para habilitar la funcionalidad multi-tenancy.
+
+
+.Acerca de esta tarea
+El SRA admite la gestión a nivel de clúster y la gestión a nivel de SVM. Si añade almacenamiento en el nivel del clúster, puede detectar y realizar operaciones en todas las SVM del clúster. Si añade almacenamiento a nivel de SVM, solo podrá gestionar esa SVM específica.
+
+[NOTE]
+====
+VMware no admite el protocolo NFS4.1 para SRM.
+
+====
+.Pasos
+. En SRM, haga clic en *Array Managers* y, a continuación, haga clic en *Agregar Array Manager*.
+. Introduzca la siguiente información para describir la cabina en SRM:
++
+.. Introduzca un nombre para identificar al administrador de matrices en el campo *Nombre para mostrar*.
+.. En el campo *Tipo de SRA*, seleccione *adaptador de replicación del almacenamiento de NetApp para ONTAP*.
+.. Introduzca la información para conectarse con el clúster o la SVM:
++
+*** Si se conecta a un clúster, debe introducir la LIF de gestión del clúster.
+*** Si se conecta directamente a una SVM, debe introducir la dirección IP de la LIF de gestión de SVM.
++
+[NOTE]
+====
+Al configurar el administrador de matrices, debe utilizar la misma conexión y las mismas credenciales para el sistema de almacenamiento que se utilizó para agregar el sistema de almacenamiento en el menú *sistemas de almacenamiento* de Virtual Storage Console. Por ejemplo, si la configuración del administrador de cabinas tiene el ámbito de SVM, debe añadirse el almacenamiento en VSC a nivel de SVM.
+
+====
+
+
+.. Si se conecta a un clúster, introduzca el nombre de la SVM en el campo *SVM name*.
++
+También puede dejar este campo en blanco.
+
+.. *Opcional:* Introduzca los volúmenes que se van a detectar en el campo *Lista de inclusión de volumen*.
++
+Se puede introducir el volumen de origen en el sitio protegido y el volumen de destino replicado en el centro de recuperación. Se puede introducir el nombre completo del volumen o el nombre del volumen parcial.
+
++
+Por ejemplo, si desea descubrir el volumen _src_vol1_ que está en una relación de SnapMirror con el volumen _dst_vol1_, debe especificar _src_vol1_ en el campo del sitio protegido y _dst_vol1_ en el campo del sitio de recuperación.
+
+.. *Opcional:* Introduzca los volúmenes que se van a excluir del descubrimiento en el campo *Lista de exclusión de volumen*.
++
+Se puede introducir el volumen de origen en el sitio protegido y el volumen de destino replicado en el centro de recuperación. Se puede introducir el nombre completo del volumen o el nombre del volumen parcial.
+
++
+Por ejemplo, si desea excluir el volumen _src_vol1_ que está en una relación de SnapMirror con el volumen _dst_vol1_, debe especificar _src_vol1_ en el campo del sitio protegido y _dst_vol1_ en el campo del sitio de recuperación.
+
+.. Introduzca el nombre de usuario de la cuenta a nivel de clúster o de la cuenta a nivel de SVM en el campo *Nombre de usuario*.
+.. Introduzca la contraseña de la cuenta de usuario en el campo *Contraseña*.
+
+
+. Haga clic en *Siguiente*.
+. Compruebe que la matriz se detecta y se muestra en la parte inferior de la ventana *Add Array Manager*.
+. Haga clic en *Finalizar*.
+
+
+.Después de terminar
+Puede seguir los mismos pasos para el sitio de recuperación usando las direcciones IP de gestión de SVM y las credenciales adecuadas. En la pantalla *Activar pares de matrices* del asistente *Agregar Array Manager*, debe comprobar que se ha seleccionado el par de matrices correcto y que aparece como listo para activarse.

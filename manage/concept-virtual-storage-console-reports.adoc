@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-virtual-storage-console-reports.html 
+sidebar: sidebar 
+keywords: understanding, virtual, storage, console, reports, 
+summary: 'Puede utilizar el menú Virtual Storage Console (VSC) Reports para ver informes predefinidos para todos los almacenes de datos gestionados por una instancia de VSC seleccionada en un determinado vCenter Server. Puede realizar operaciones como ordenar y exportar informes.' 
+---
+= Comprender los informes de Virtual Storage Console
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar el menú * Reports* de Virtual Storage Console (VSC) para ver informes predefinidos para todos los almacenes de datos gestionados por una instancia de VSC seleccionada en un vCenter Server en particular. Puede realizar operaciones como ordenar y exportar informes.

@@ -1,0 +1,30 @@
+---
+permalink: manage/concept-what-storage-capabilities-are.html 
+sidebar: sidebar 
+keywords: storage, capability, profiles, 
+summary: Una funcionalidad de almacenamiento es un conjunto de atributos del sistema de almacenamiento que identifica un nivel específico de rendimiento del almacenamiento, eficiencia del almacenamiento y otras funcionalidades, como el cifrado del objeto de almacenamiento asociado con la funcionalidad de almacenamiento. 
+---
+= Qué capacidades de almacenamiento son
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una funcionalidad de almacenamiento es un conjunto de atributos del sistema de almacenamiento que identifica un nivel específico de rendimiento del almacenamiento, eficiencia del almacenamiento y otras funcionalidades, como el cifrado del objeto de almacenamiento asociado con la funcionalidad de almacenamiento.
+
+Para los almacenes de datos tradicionales, puede utilizar un perfil de funcionalidad de almacenamiento para crear almacenes de datos de forma coherente con los atributos comunes y asignar políticas de calidad de servicio a ellos. Durante el aprovisionamiento, VSC muestra los clústeres, las SVM y los agregados que coinciden con el perfil de funcionalidad de almacenamiento. Puede generar un perfil de capacidad de almacenamiento a partir de almacenes de datos tradicionales existentes utilizando la opción *GLOBAL AUTO-GENERATE PROFILES* del menú *asignación de almacenamiento*. Una vez creado el perfil, puede usar VSC para supervisar el cumplimiento de normativas de los almacenes de datos con el perfil.
+
+Cuando se utiliza con almacenes de datos de VVol, el asistente de aprovisionamiento puede utilizar varios perfiles de funcionalidades de almacenamiento para crear diferentes volúmenes de FlexVol en el almacén de datos. Puede utilizar la política de almacenamiento de máquinas virtuales para crear automáticamente VVol para una máquina virtual en volúmenes FlexVol apropiados, según se haya definido. Por ejemplo, puede crear perfiles para clases de almacenamiento comunes (como límites de rendimiento y otras funcionalidades como el cifrado o FabricPool). Posteriormente, es posible crear políticas de almacenamiento de equipos virtuales en vCenter Server que representen a los tipos de negocio de las máquinas virtuales y vincularlos al perfil de funcionalidad de almacenamiento correspondiente por nombre (por ejemplo, producción, pruebas, recursos humanos).
+
+Al utilizarse con VVol, el perfil de funcionalidad de almacenamiento también se utiliza para establecer el rendimiento del almacenamiento de la máquina virtual individual y colocarlo en el volumen FlexVol del almacén de datos VVol que mejor satisfaga los requisitos de rendimiento. Puede especificar la política de calidad de servicio con IOPS mínimo y/o máximo para el rendimiento. Puede usar las políticas predeterminadas al aprovisionar una máquina virtual inicialmente, o cambiar la política de almacenamiento de máquinas virtuales más adelante si cambian los requisitos empresariales.
+
+A continuación, vCenter Server asocia la funcionalidad de almacenamiento de un LUN o un volumen con el almacén de datos que se aprovisiona en ese LUN o volumen. Esto permite aprovisionar una máquina virtual en un almacén de datos que coincida con el perfil de almacenamiento de la máquina virtual y garantizar que todos los almacenes de datos de un clúster de almacenes de datos tengan los mismos niveles de servicio de almacenamiento.
+
+Con el dispositivo virtual para Virtual Storage Console (VSC), proveedor VASA y Storage Replication Adapter (SRA), es posible configurar cada almacén de datos de volúmenes virtuales (VVol) con un nuevo perfil de funcionalidad de almacenamiento que admite el aprovisionamiento de máquinas virtuales con requisitos de IOPS variables en el mismo almacén de datos de VVol. Al ejecutar el flujo de trabajo de aprovisionamiento de máquinas virtuales con requisitos de IOPS, todos los almacenes de datos de VVol se enumeran en la lista de almacenes de datos compatibles.
+
+[NOTE]
+====
+Cuando se intenta aprovisionar o modificar máquinas virtuales para vCenter Server anterior a 6.5, solo los almacenes de datos VVol que contienen perfiles de funcionalidad de almacenamiento con rendimiento definido como «MAX_IOPS» se enumeran en la lista de almacenes de datos compatibles. Los almacenes de datos de VVol restantes se muestran en la lista de almacenes de datos incompatibles. Es posible ignorar esta clasificación y seleccionar cualquier almacén de datos de VVol de la lista de almacenes de datos incompatibles para aprovisionar o modificar la máquina virtual.
+
+====

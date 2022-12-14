@@ -1,0 +1,47 @@
+---
+permalink: deploy/concept-requirements-for-registering-vsc-in-multiple-vcenter-servers-environment.html 
+sidebar: sidebar 
+keywords: requirements, registering, vsc, multiple, vcenter, servers, environment, 
+summary: 'Si utiliza Virtual Storage Console para VMware vSphere en un entorno donde un único cliente HTML5 de VMware vSphere. Está gestionando varias instancias de vCenter Server, debe registrar una instancia de VSC en cada instancia de vCenter Server, de modo que haya un emparejamiento 1:1 entre VSC y vCenter Server. Esta acción le permite gestionar todos los servidores que ejecutan vCenter 6.0 o una versión posterior en el modo vinculado y en el modo no vinculado desde un único cliente HTML5 de vSphere.' 
+---
+= Requisitos para registrar VSC en varios entornos de vCenter Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza Virtual Storage Console para VMware vSphere en un entorno donde un único cliente HTML5 de VMware vSphere. Está gestionando varias instancias de vCenter Server, debe registrar una instancia de VSC en cada instancia de vCenter Server, de modo que haya un emparejamiento 1:1 entre VSC y vCenter Server. Esta acción le permite gestionar todos los servidores que ejecutan vCenter 6.0 o una versión posterior en el modo vinculado y en el modo no vinculado desde un único cliente HTML5 de vSphere.
+
+[NOTE]
+====
+Si desea utilizar VSC con una instancia de vCenter Server, debe haber configurado o registrado una instancia de VSC para cada instancia de vCenter Server que desee gestionar. Cada instancia de VSC registrada debe tener la misma versión.
+
+====
+El modo vinculado se instala automáticamente durante la puesta en marcha de vCenter Server. El modo vinculado utiliza el modo de aplicación de Microsoft Active Directory (ADAM) para almacenar y sincronizar datos en varios sistemas de vCenter Server.
+
+El uso del cliente HTML5 de vSphere para realizar tareas VSC en varias instancias de vCenter Server requiere lo siguiente:
+
+* Cada instancia de vCenter Server del inventario de VMware que desee gestionar debe tener un único servidor VSC registrado con él en un emparejamiento único 1:1.
++
+Por ejemplo, puede tener un servidor VSC A registrado en vCenter Server A, el servidor VSC B registrado en vCenter Server B, el servidor VSC C registrado en vCenter Server C, etc.
+
++
+*No puede* tener un servidor VSC a registrado tanto en vCenter Server a como en vCenter Server B.
+
++
+Si un inventario de VMware incluye una instancia de vCenter Server que no tiene ningún servidor VSC registrado, pero hay una o más instancias de vCenter Server registradas en VSC, A continuación, puede ver las instancias de VSC y realizar operaciones VSC para las instancias de vCenter Server que tienen registrado VSC.
+
+* Debe tener el privilegio View específico de VSC para cada instancia de vCenter Server que se registre en el inicio de sesión único (SSO).
++
+También debe tener los permisos de RBAC correctos.
+
+
+
+Cuando va a realizar una tarea que requiere especificar una instancia de vCenter Server, el cuadro desplegable *vCenter Server* muestra los servidores vCenter disponibles en orden alfanumérico. El servidor vCenter Server predeterminado siempre es el primer servidor de la lista desplegable.
+
+Si se conoce la ubicación del almacenamiento (por ejemplo, cuando se utiliza el asistente *Provisioning* y el almacén de datos se encuentra en un host gestionado por un vCenter Server específico), la lista de vCenter Server se muestra como una opción de solo lectura. Esto sucede solo cuando se utiliza la opción de clic con el botón derecho para seleccionar un elemento en vSphere Web Client.
+
+VSC le avisa cuando se intenta seleccionar un objeto que no gestiona.
+
+Puede filtrar los sistemas de almacenamiento según una instancia específica de vCenter Server en la página de resumen de VSC. Se muestra una página de resumen para cada instancia de VSC que está registrada en una instancia de vCenter Server. Puede gestionar los sistemas de almacenamiento asociados con una instancia de VSC específica y una instancia de vCenter Server, pero debe mantener la información de registro de cada sistema de almacenamiento separada si ejecuta varias instancias de VSC.

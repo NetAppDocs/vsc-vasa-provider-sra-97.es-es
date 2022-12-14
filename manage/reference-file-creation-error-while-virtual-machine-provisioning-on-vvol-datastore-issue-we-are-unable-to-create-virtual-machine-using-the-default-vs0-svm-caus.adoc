@@ -1,0 +1,37 @@
+---
+permalink: manage/reference-file-creation-error-while-virtual-machine-provisioning-on-vvol-datastore-issue-we-are-unable-to-create-virtual-machine-using-the-default-vs0-svm-caus.html 
+sidebar: sidebar 
+keywords: error, provisioning, virtual, machine, troubleshooting, error, 
+summary: Error de creación de archivos al aprovisionar máquinas virtuales en almacenes de datos de VVol 
+---
+= Error de creación de archivos al aprovisionar máquinas virtuales en almacenes de datos de VVol
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Problema
+
+No puede crear una máquina virtual con la máquina virtual de almacenamiento predeterminada (SVM) o ninguna máquina virtual de almacenamiento mixta (SVM) que tenga configuradas los LIF de datos de IPv6 y IPv4.
+
+
+
+== Causa
+
+El problema se produce porque el valor predeterminado vs0 tiene LIF de datos IPv6 y IPv4, y no es un almacén de datos exclusivamente IPv4.
+
+
+
+== Acción correctiva
+
+Puede aprovisionar una máquina virtual con vs0 siguiendo los pasos siguientes:
+
+. Utilice la aplicación System Manager para deshabilitar todas las LIF IPv6 .
+. Vuelva a detectar el clúster.
+. Aprovisione una máquina virtual en el almacén de datos de VVol en el que se produjo un error de aprovisionamiento.
++
+El equipo virtual está aprovisionado correctamente.
+
+

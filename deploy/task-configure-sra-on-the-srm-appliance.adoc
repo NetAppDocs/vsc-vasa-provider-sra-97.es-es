@@ -1,0 +1,31 @@
+---
+permalink: deploy/task-configure-sra-on-srm-appliance.html 
+sidebar: sidebar 
+keywords: configuring, sra, srm, appliance, 
+summary: 'Después de implementar el dispositivo de SRM, debe configurar SRA en el dispositivo de SRM. La configuración correcta del SRA permite que el dispositivo SRM se comunique con el SRA para la gestión de la recuperación ante desastres. Debe almacenar el dispositivo virtual para VSC, proveedores VASA y credenciales de SRA (dirección IP y contraseña de administrador) en el dispositivo SRM para habilitar la comunicación entre el dispositivo SRM y el SRA.' 
+---
+= Configure SRA en el dispositivo SRM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de implementar el dispositivo de SRM, debe configurar SRA en el dispositivo de SRM. La configuración correcta del SRA permite que el dispositivo SRM se comunique con el SRA para la gestión de la recuperación ante desastres. Debe almacenar el dispositivo virtual para VSC, proveedores VASA y credenciales de SRA (dirección IP y contraseña de administrador) en el dispositivo SRM para habilitar la comunicación entre el dispositivo SRM y el SRA.
+
+.Antes de empezar
+Debe cargar el `tar.gz` Archivo a dispositivo SRM.
+
+.Acerca de esta tarea
+La configuración del SRA en el dispositivo de SRM almacena las credenciales del SRA en el dispositivo de SRM.
+
+.Pasos
+. Inicie sesión utilizando la cuenta de administrador en el dispositivo SRM utilizando putty.
+. Cambie al usuario raíz mediante el comando: `su root`
+. En la ubicación del registro, introduzca el comando para obtener el identificador de Docker utilizado por el SRA `docker ps -l`
+. Para iniciar sesión en el identificador del contenedor, introduzca el comando `docker exec -it -u srm <container id> sh`
+. Configure el SRM con el dispositivo virtual para VSC, proveedor VASA y la dirección IP y la contraseña de SRA mediante el comando: `perl command.pl -I <va-IP> administrator <va-password>`
++
+Se muestra un mensaje indicando que las credenciales de almacenamiento están almacenadas correctamente. El SRA puede comunicarse con el servidor SRA mediante la dirección IP, el puerto y las credenciales proporcionados.
+
+

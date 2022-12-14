@@ -1,0 +1,49 @@
+---
+permalink: deploy/task-refresh-the-storage-system-display.html 
+sidebar: sidebar 
+keywords: refreshing, the, storage, system, display, 
+summary: 'Puede utilizar la función de actualización que ofrece Virtual Storage Console para VMware vSphere para actualizar la información sobre los sistemas de almacenamiento y forzar Virtual Storage Console (VSC) a detectar sistemas de almacenamiento.' 
+---
+= Actualice la pantalla del sistema de almacenamiento
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar la función de actualización que ofrece Virtual Storage Console para VMware vSphere para actualizar la información sobre los sistemas de almacenamiento y forzar Virtual Storage Console (VSC) a detectar sistemas de almacenamiento.
+
+.Acerca de esta tarea
+La opción «relativamente fresco» es útil si ha cambiado las credenciales predeterminadas de los sistemas de almacenamiento después de recibir un error de autenticación. Siempre debe realizar una operación de actualización si ha cambiado las credenciales del sistema de almacenamiento después de que el sistema de almacenamiento haya informado de un ""Estado de fallo de autenticación"". Durante la operación de actualización, VSC intenta conectarse al sistema de almacenamiento usando las nuevas credenciales.
+
+Según la configuración del sistema, esta tarea puede tardar mucho tiempo en completarse.
+
+.Pasos
+. En la página VMware vSphere Client *Home*, haga clic en *Storage Systems*.
+. Inicie la actualización:
++
+[cols="1a,1a"]
+|===
+| Si la ubicación es... | Haga clic en... 
+
+
+ a| 
+Consola de almacenamiento virtual
+ a| 
+El icono *REDISCOVER ALL*.
+
+
+
+ a| 
+Centro de datos
+ a| 
+Haga clic con el botón derecho en el centro de datos y, a continuación, haga clic en MENU:NetApp VSC[Update Host and Storage Data].
+
+|===
+. En el cuadro de diálogo *Actualizar datos de host y almacenamiento*, haga clic en *Aceptar*.
++
+La detección puede tardar unos minutos, en función de la cantidad de hosts y sistemas de almacenamiento del centro de datos. Esta operación de detección funciona en segundo plano.
+
+. Haga clic en *Aceptar* en el cuadro de diálogo *éxito*.
+

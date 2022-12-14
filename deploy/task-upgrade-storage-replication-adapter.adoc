@@ -1,0 +1,51 @@
+---
+permalink: deploy/task-upgrade-storage-replication-adapter.html 
+sidebar: sidebar 
+keywords: sra, upgrade, upgrading, storage, replication, adapter, 
+summary: 'Después de actualizar el dispositivo virtual para VSC, proveedor VASA y SRA, o de implementar la versión más reciente del dispositivo virtual, debe actualizar el adaptador de replicación de almacenamiento (SRA).' 
+---
+= Actualice el adaptador de replicación de almacenamiento
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de actualizar el dispositivo virtual para VSC, proveedor VASA y SRA, o de implementar la versión más reciente del dispositivo virtual, debe actualizar el adaptador de replicación de almacenamiento (SRA).
+
+.Pasos
+. Debe actualizar al adaptador más reciente mediante uno de los siguientes procedimientos basados en su adaptador:
++
+[cols="1a,1a"]
+|===
+| *Para...* | Realice lo siguiente... 
+
+
+ a| 
+*Windows*
+ a| 
+.. Inicie sesión en SRM Windows Server.
+.. Desinstale el instalador de SRA _.msi_ existente del servidor SRM.
+.. Cambie la ruta del sistema a. `C:\Program Files\VMware\VMware vCenter Site Recovery Manager\external\perl\c\bin`
+.. Haga doble clic en el instalador _.msi_ que ha descargado desde el sitio de soporte de NetApp y siga las instrucciones en pantalla.
+.. Introduzca la dirección IP y la contraseña del dispositivo virtual puesto en marcha para VSC, proveedor VASA y SRA.
+
+
+
+
+ a| 
+*Adaptador basado en dispositivo*
+ a| 
+.. Inicie sesión en la página Gestión del dispositivo SRM.
+.. Haga clic en *adaptador de replicación de almacenamiento* y haga clic en *Eliminar* para eliminar el SRA existente.
+.. Haga clic en menú:Nuevo adaptador[examinar].
+.. Haga clic aquí para seleccionar el último archivo de tarball de SRA que descargó del sitio de soporte de NetApp y, a continuación, haga clic en *instalar*.
+.. Configure SRA en el dispositivo SRM.
++
+xref:task-configure-sra-on-srm-appliance.adoc[Configure SRA en el dispositivo SRM]
+
+
+
+|===
+

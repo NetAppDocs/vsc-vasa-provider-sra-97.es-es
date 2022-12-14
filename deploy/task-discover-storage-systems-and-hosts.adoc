@@ -1,0 +1,44 @@
+---
+permalink: deploy/task-discover-storage-systems-and-hosts.html 
+sidebar: sidebar 
+keywords: discovering, storage, systems, hosts, 
+summary: 'Cuando se ejecuta por primera vez (VSC) en una instancia de vSphere Client, VSC detecta los hosts ESXi, sus LUN y exportaciones NFS y los sistemas de almacenamiento de NetApp que poseen esos LUN y exportaciones.' 
+---
+= Detectar sistemas de almacenamiento y hosts
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se ejecuta por primera vez (VSC) en una instancia de vSphere Client, VSC detecta los hosts ESXi, sus LUN y exportaciones NFS y los sistemas de almacenamiento de NetApp que poseen esos LUN y exportaciones.
+
+.Antes de empezar
+* Todos los hosts ESXi deben estar encendidos y conectados.
+* Todos los que se van a detectar deben estar en ejecución y cada nodo del clúster debe tener al menos una LIF de datos configurada para el protocolo de almacenamiento que se está utilizando (NFS, iSCSI o FC).
+
+
+.Acerca de esta tarea
+Puede detectar nuevos sistemas de almacenamiento o actualizar información sobre los sistemas de almacenamiento existentes para obtener la información más reciente sobre la configuración y la capacidad en cualquier momento. También puede modificar las credenciales que utiliza VSC para iniciar sesión en los sistemas de almacenamiento.
+
+Al detectar los sistemas de almacenamiento de, VSC recopila información de los hosts ESXi gestionados por la instancia de vCenter Server.
+
+.Pasos
+. En la página Home* de vSphere Client, seleccione *hosts and Clusters*.
+. Haga clic con el botón derecho en el centro de datos deseado y seleccione MENU:NetApp VSC[Update Host and Storage Data].
++
+VSC muestra un cuadro de diálogo de confirmación para informar de que esta operación puede llevar mucho tiempo.
+
+. Haga clic en *Aceptar*.
+. Seleccione los controladores de almacenamiento detectados que tengan el estado "'fallo de autenticación'" y, a continuación, haga clic en menú:ACCIONES[Modificar].
+. Rellene la información necesaria en el cuadro de diálogo *Modificar sistema de almacenamiento*.
+. Repita los pasos 4 y 5 en todas las controladoras de almacenamiento con el estado «"fallo de autenticación"».
+
+
+.Después de terminar
+Una vez completado el proceso de detección, realice lo siguiente:
+
+* Utilice VSC para configurar los ajustes del host ESXi para los hosts que muestran el icono Alerta en la columna *Configuración del adaptador*, la columna *Configuración MPIO* o la columna *Configuración NFS*.
+* Proporcione las credenciales del sistema de almacenamiento.
+

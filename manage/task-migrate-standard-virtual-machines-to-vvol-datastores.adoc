@@ -1,0 +1,27 @@
+---
+permalink: manage/task-migrate-standard-virtual-machines-to-vvol-datastores.html 
+sidebar: sidebar 
+keywords: migrate, traditional, virtual, machines, datastores, 
+summary: 'Puede migrar máquinas virtuales desde almacenes de datos tradicionales a almacenes de datos Virtual Volumes (vVols) para aprovechar la gestión de máquinas virtuales basada en políticas y otras funcionalidades vVols. Los almacenes de datos vVols le permiten satisfacer requisitos de cargas de trabajo crecientes.' 
+---
+= Migre máquinas virtuales tradicionales a almacenes de datos vVols
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede migrar máquinas virtuales desde almacenes de datos tradicionales a almacenes de datos Virtual Volumes (vVols) para aprovechar la gestión de máquinas virtuales basada en políticas y otras funcionalidades vVols. Los almacenes de datos vVols le permiten satisfacer requisitos de cargas de trabajo crecientes.
+
+.Antes de empezar
+Debe haberse asegurado de que VASA Provider no está en ejecución en ninguna de las máquinas virtuales que planea migrar. Si migra una máquina virtual que ejecuta VASA Provider a un almacén de datos vVols, no podrá realizar ninguna operación de gestión, incluida la activación de las máquinas virtuales que se encuentran en almacenes de datos vVols.
+
+.Acerca de esta tarea
+Cuando se realiza la migración desde un almacén de datos tradicional a un almacén de datos VVol, vCenter Server utiliza las API de vStorage para la integración de cabinas (VAAI) para la descarga al mover datos de almacenes de datos VMFS, pero no de un archivo VMDK de NFS. Las descargas de VAAI suelen reducir la carga en el host.
+
+.Pasos
+. Haga clic con el botón secundario en la máquina virtual que desee migrar y, a continuación, haga clic en *migrar*.
+. Seleccione *Cambiar sólo almacenamiento* y, a continuación, haga clic en *Siguiente*.
+. Seleccione un formato de disco virtual, una política de almacenamiento de VM y un almacén de datos VVol que coincidan con las características del almacén de datos que va a migrar y, a continuación, haga clic en *Siguiente*.
+. Revise la configuración y, a continuación, haga clic en *Finalizar*.
+

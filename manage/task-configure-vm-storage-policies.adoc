@@ -1,0 +1,37 @@
+---
+permalink: manage/task-configure-vm-storage-policies.html 
+sidebar: sidebar 
+keywords: configuring, vm, storage, policies, 
+summary: Debe configurar las políticas de almacenamiento de equipos virtuales para gestionar equipos virtuales que están configurados en el almacén de datos vVols y para habilitar servicios como la replicación de los discos virtuales. Para los almacenes de datos tradicionales, es opcional usar estas políticas de almacenamiento de máquinas virtuales. 
+---
+= Configuración de políticas de almacenamiento de equipos virtuales
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe configurar las políticas de almacenamiento de equipos virtuales para gestionar equipos virtuales que están configurados en el almacén de datos vVols y para habilitar servicios como la replicación de los discos virtuales. Para los almacenes de datos tradicionales, es opcional usar estas políticas de almacenamiento de máquinas virtuales.
+
+.Acerca de esta tarea
+El cliente web de vSphere proporciona políticas de almacenamiento predeterminadas. Pero puede crear políticas y asignarlas a los equipos virtuales.
+
+.Pasos
+. En la página vSphere Client, haga clic en MENU:Menu[Policies and Profiles].
+. Haga clic en MENU:VM Storage Policies[Create VM Storage Policy].
+. En la página Create VM Storage Policy, proporcione los siguientes detalles:
++
+.. Escriba un nombre y una descripción para la normativa de almacenamiento de VM.
+.. Seleccione *Habilitar reglas para el almacenamiento «Clustered Data ONTAP.VP.vvol» de NetApp*.
+.. Seleccione el perfil de capacidad de almacenamiento necesario en la ficha *colocación*.
+.. Seleccione la opción *personalizado* para activar la replicación.
+.. Haga clic en *AÑADIR REGLA* para seleccionar *duplicación asíncrona* y necesaria *Programación de SnapMirror* y, a continuación, haga clic en *SIGUIENTE*.
+.. Compruebe los almacenes de datos compatibles que aparecen y, a continuación, haga clic en *SIGUIENTE* en la ficha *compatibilidad de almacenamiento*.
++
+En el caso de almacenes de datos vVols con volúmenes FlexVol de protección de datos, no se realiza la comprobación de almacenes de datos compatibles.
+
+
+
+. Revise la selección de la política de almacenamiento de VM en la ficha *revisar y finalizar* y, a continuación, haga clic en *Finalizar*.
+

@@ -1,0 +1,18 @@
+---
+permalink: deploy/concept-vcenter-server-role-based-access-control-features-in-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: vcenter, server, role-based, access, control, features, vsc, vmware, vsphere, 
+summary: 'VCenter Server proporciona un control de acceso basado en roles (RBAC) que permite controlar el acceso a los objetos de vSphere. En Virtual Storage Console para VMware vSphere, el control de acceso basado en roles de vCenter Server funciona con ONTAP para determinar qué tareas de VSC puede ejecutar un usuario específico en objetos de un sistema de almacenamiento específico.' 
+---
+= Funciones de control de acceso basado en roles de vCenter Server en VSC para VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VCenter Server proporciona un control de acceso basado en roles (RBAC) que permite controlar el acceso a los objetos de vSphere. En Virtual Storage Console para VMware vSphere, el control de acceso basado en roles de vCenter Server funciona con ONTAP para determinar qué tareas de VSC puede ejecutar un usuario específico en objetos de un sistema de almacenamiento específico.
+
+Para completar correctamente una tarea, debe tener los permisos de control de acceso basado en roles de vCenter Server correspondientes. Durante una tarea, VSC comprueba los permisos de vCenter Server de un usuario antes de comprobar los privilegios de ONTAP del usuario.
+
+Es posible establecer los permisos de vCenter Server para el objeto raíz (también denominado carpeta raíz). Posteriormente, es posible refinar la seguridad aplicando restricciones a entidades secundarias que no necesitan los mismos permisos.

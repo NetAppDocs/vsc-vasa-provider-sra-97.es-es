@@ -1,0 +1,66 @@
+---
+permalink: deploy/task-clean-the-vsphere-cached-downloaded-plug-in-packages.html 
+sidebar: sidebar 
+keywords: clean, up, browser, cache, cleaning, the, vsphere, cached, downloaded, plug-in, packages, 
+summary: Si los plugins no se actualizan automáticamente después de implementar o actualizar el dispositivo virtual para VSC, VASA Provider y SRA, debe borrar los paquetes de plugins de descarga almacenados en caché en el explorador y en vCenter Serverpara resolver problemas con los plugins de vCenter Server. 
+---
+= Borre los paquetes de plugins descargados en caché de vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si los plugins no se actualizan automáticamente después de implementar o actualizar el dispositivo virtual para VSC, proveedor VASA y SRA, debe borrar los paquetes de plugins de descarga almacenados en caché en el explorador y en vCenter Server para resolver problemas de plugins de vCenter Server.
+
+.Pasos
+. Cierre la sesión en el cliente web de vSphere o en vSphere Client existente.
+. Quite la caché del explorador.
+. Quite los paquetes de plugins almacenados en caché de vSphere Client.
++
+[cols="1a,1a"]
+|===
+| Si está usando... | Realice lo siguiente... 
+
+
+ a| 
+Servidor Windows vCenter
+ a| 
+Quite las siguientes carpetas com.netapp.vasa.vvol.webclient-x.x.x.xxxx, com.netapp.nvpf.webclient-x.x.x.xxxx y com.netapp.vsch5-x.x.x.xxxx que se encuentran en:
+
+** Ruta de vSphere Web Client: C:\ProgramData\VMware\vCenterServer\cfg\vsphere-client\vc-packages\vsphere-client-Serenity
+** Ruta de vSphere Client (HTML5): C:\ProgramData\VMware\vCenterServer\cfg\vsphere-ui\vc-packages\vsphere-client-Serenity
+
+
+
+
+ a| 
+VCSA
+ a| 
+.. SSH en el dispositivo VCSA.
+.. Cambie los directorios al directorio de extensiones de la interfaz de usuario del cliente web de vCenter mediante `cd /etc/vmware/vsphere-client/vc-packages/vsphere-client-serenity`
+.. Elimine los paquetes de plugins almacenados en caché mediante los comandos:
++
+*** `rm -rf com.netapp.vasa.vvol.webclient-x.x.x.xxxx`
+*** `rm -rf com.netapp.nvpf.webclient-x.x.x.xxxx`
+*** `rm -rf com.netapp.vsch5-x.x.x.xxxx`
+
+
+.. Cambie los directorios al directorio de extensiones de la interfaz de usuario del cliente de vCenter (HTML5) mediante `cd /etc/vmware/vsphere-ui/vc-packages/vsphere-client-serenity`
+.. Elimine los paquetes de plugins almacenados en caché mediante los comandos:
++
+*** `rm -rf com.netapp.vasa.vvol.webclient-x.x.x.xxxx`
+*** `rm -rf com.netapp.nvpf.webclient-x.x.x.xxxx`
+*** `rm -rf com.netapp.vsch5-x.x.x.xxxx`
+
+
+
+
+|===
+. Inicie sesión en vSphere y reinicie vSphere Web Client y los servicios de vSphere Client mediante los siguientes comandos:
++
+** `service-control --stop vsphere-client vsphere-ui`
+** `service-control --start vsphere-client vsphere-ui`
+
+
+

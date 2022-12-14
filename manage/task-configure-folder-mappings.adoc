@@ -1,0 +1,39 @@
+---
+permalink: manage/task-configure-folder-mappings.html 
+sidebar: sidebar 
+keywords: configuring, folder, mappings, 
+summary: Debe asignar sus carpetas en el sitio protegido y en el sitio de recuperación para habilitar la comunicación entre ellas. 
+---
+= Configure las asignaciones de carpetas
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe asignar sus carpetas en el sitio protegido y en el sitio de recuperación para habilitar la comunicación entre ellas.
+
+.Antes de empezar
+Debe haber conectado los sitios protegidos y de recuperación.
+
+.Pasos
+. Inicie sesión en su vCenter Server y haga clic en el menú:Site Recovery[Sites].
+. Seleccione su sitio protegido y, a continuación, haga clic en *Administrar*.
+. En la ficha Administrar, seleccione *asignaciones de carpetas*.
+. Haga clic en laimage:../media/new-folder-mappings.gif[""] para crear una nueva asignación de carpetas.
++
+Aparece el asistente Crear asignación de carpetas.
+
+. En el asistente *Crear asignación de carpetas*, realice lo siguiente:
++
+.. Seleccione *preparar automáticamente asignaciones para carpetas con nombres coincidentes* y haga clic en *Siguiente*.
+.. Seleccione los objetos de centro de datos necesarios para los sitios protegidos y de recuperación y haga clic en *Agregar asignaciones*.
+.. Haga clic en *Siguiente* después de crear correctamente las asignaciones.
+.. Seleccione el objeto utilizado anteriormente para crear la asignación inversa y, a continuación, haga clic en *Finalizar*.
+
+
+
+
+.Resultados
+La página *asignaciones de carpetas* muestra los recursos del sitio protegido y los recursos del sitio de recuperación. Puede seguir los mismos pasos para otras redes del entorno.

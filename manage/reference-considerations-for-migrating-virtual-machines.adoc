@@ -1,0 +1,59 @@
+---
+permalink: manage/reference-considerations-for-migrating-virtual-machines.html 
+sidebar: sidebar 
+keywords: considerations, for, migrating, or, cloning, virtual, machines, 
+summary: Debe conocer algunos de los aspectos que se deben tener en cuenta al migrar las máquinas virtuales exitng de su centro de datos. 
+---
+= Consideraciones que tener en cuenta para migrar o clonar máquinas virtuales
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe conocer algunos de los aspectos que se deben tener en cuenta al migrar las máquinas virtuales exitng de su centro de datos.
+
+
+
+== Migrar máquinas virtuales protegidas
+
+Puede migrar las máquinas virtuales protegidas a:
+
+* El mismo almacén de datos vVols en un host ESXi diferente
+* Distinto almacén de datos vVols compatible en el mismo host ESXi
+* Distinto almacén de datos vVols compatible en un host ESXi diferente
+
+
+Si la máquina virtual se migra a otro volumen de FlexVol, el respectivo archivo de metadatos también se actualiza con la información de la máquina virtual. Si una máquina virtual se migra a un host ESXi diferente pero mismo almacenamiento, no se modificará el archivo de metadatos del volumen FlexVol subyacente.
+
+
+
+== Clonar máquinas virtuales protegidas
+
+Es posible clonar máquinas virtuales protegidas con las siguientes características:
+
+* El mismo contenedor de un mismo volumen FlexVol que utiliza el grupo de replicación
++
+El archivo de metadatos del mismo volumen de FlexVol se actualiza con los detalles de la máquina virtual clonada.
+
+* El mismo contenedor de un volumen FlexVol diferente mediante el grupo de replicación
++
+Volumen FlexVol donde se coloca la máquina virtual clonada, el archivo de metadatos se actualiza con los detalles de la máquina virtual clonada.
+
+* Diferentes contenedores o almacenes de datos vVols
++
+Volumen FlexVol donde se coloca la máquina virtual clonada, el archivo de metadatos se actualiza los detalles de la máquina virtual.
+
+
+
+En este momento, VMware no admite la clonación de máquinas virtuales en una plantilla de máquinas virtuales.
+
+Se admite el clonado de clon de una máquina virtual protegida.
+
+
+
+== Snapshots de máquina virtual
+
+Actualmente solo se admiten instantáneas de máquina virtual sin memoria. Si la máquina virtual tiene una snapshot con memoria, no se considera que la máquina virtual tenga protección.
+
+Tampoco puede proteger la máquina virtual desprotegida que tenga memoria snapshot. Para esta versión, se espera que elimine la instantánea de memoria antes de habilitar la protección para la máquina virtual.

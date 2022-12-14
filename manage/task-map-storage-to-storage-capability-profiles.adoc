@@ -1,0 +1,49 @@
+---
+permalink: manage/task-map-storage-to-storage-capability-profiles.html 
+sidebar: sidebar 
+keywords: mapping, datastores, to, storage, capability, profiles, 
+summary: Es posible asignar los almacenes de datos que están asociados con VASA Provider para ONTAP a los perfiles de funcionalidad de almacenamiento. Es posible asignar un perfil a un almacén de datos que no está asociado a un perfil de funcionalidad de almacenamiento. 
+---
+= Asignar almacenes de datos a perfiles de funcionalidad de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible asignar los almacenes de datos que están asociados con VASA Provider para ONTAP a los perfiles de funcionalidad de almacenamiento. Es posible asignar un perfil a un almacén de datos que no está asociado a un perfil de funcionalidad de almacenamiento.
+
+.Antes de empezar
+* Registró la instancia de proveedor de VASA en Virtual Storage Console para VMware vSphere.
+* Virtual Storage Console (VSC) ya debe haber detectado el almacenamiento.
+
+
+.Acerca de esta tarea
+Es posible asignar un almacén de datos tradicional con un perfil de funcionalidad de almacenamiento o cambiar el perfil de funcionalidad de almacenamiento asociado con un almacén de datos. VASA Provider _not_ muestra los almacenes de datos de volúmenes virtuales (VVol) en la página *asignaciones de almacenamiento*. Todos los almacenes de datos a los que se hace referencia en esta tarea son almacenes de datos tradicionales.
+
+.Pasos
+. En la página VSC *Inicio*, haga clic en *asignación de almacenamiento*.
++
+En la página *asignación de almacenamiento*, puede determinar la siguiente información:
+
++
+** La instancia de vCenter Server asociada con el almacén de datos
+** La cantidad de perfiles coinciden con el almacén de datos
++
+La página *asignación de almacenamiento* sólo muestra almacenes de datos tradicionales. Esta página no muestra ningún almacén de datos de VVol ni almacén de datos de qtree.
+
+** Si el almacén de datos se encuentra asociado a un perfil
++
+Un almacén de datos puede coincidir con varios perfiles, pero un almacén de datos solo puede asociarse a un único perfil.
+
+** Si el almacén de datos cumple con el perfil que está asociado
+
+
+. Para asignar un perfil de funcionalidad de almacenamiento a un almacén de datos o cambiar el perfil existente de un almacén de datos, seleccione el almacén de datos.
++
+Para localizar almacenes de datos específicos u otra información en la página *asignación de almacenamiento*, puede introducir un nombre o una cadena parcial en el cuadro de búsqueda. VSC muestra los resultados de la búsqueda en un cuadro de diálogo. Para volver a la pantalla completa, debe eliminar el texto del cuadro de búsqueda y, a continuación, hacer clic en *Intro*.
+
+. En el menú *acciones*, seleccione *asignar perfil coincidente*.
+. Seleccione el perfil que desea asignar al almacén de datos de la lista de perfiles coincidentes que se proporciona en el cuadro de diálogo *asignar perfil al almacén de datos* y, a continuación, haga clic en *Aceptar* para asignar el perfil seleccionado al almacén de datos.
+. Actualice la pantalla para verificar la nueva asignación.
+

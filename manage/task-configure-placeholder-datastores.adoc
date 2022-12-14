@@ -1,0 +1,35 @@
+---
+permalink: manage/task-configure-placeholder-datastores.html 
+sidebar: sidebar 
+keywords: configuring, placeholder, datastores, 
+summary: 'Un almacén de datos de marcador de posición se debe configurar para que contenga un lugar en el inventario de vCenter en el sitio de recuperación de la máquina virtual protegida (VM). El almacén de datos de marcador de posición no tiene por qué ser grande, ya que los marcadores de posición son pequeños y utilizan solo unos pocos cientos o menos kilobytes.' 
+---
+= Configure almacenes de datos de marcadores de posición
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un almacén de datos de marcador de posición se debe configurar para que contenga un lugar en el inventario de vCenter en el sitio de recuperación de la máquina virtual protegida (VM). El almacén de datos de marcador de posición no tiene por qué ser grande, ya que los marcadores de posición son pequeños y utilizan solo unos pocos cientos o menos kilobytes.
+
+.Antes de empezar
+* Debe haber conectado los sitios protegidos y de recuperación.
+* Debe tener configuradas las asignaciones de recursos.
+
+
+.Pasos
+. Inicie sesión en su vCenter Server y haga clic en el menú:Site Recovery[Sites].
+. Seleccione su sitio protegido y, a continuación, haga clic en *Administrar*.
+. En la pestaña Manage, seleccione *Placeholder datastores*.
+. Haga clic en la image:../media/new-placeholder-datastore.gif[""] para crear un nuevo almacén de datos de marcadores de posición.
+. Seleccione el almacén de datos adecuado y, a continuación, haga clic en *Aceptar*.
++
+[NOTE]
+====
+Los almacenes de datos de marcador de posición pueden ser locales o remotos y no deben replicarse.
+
+====
+. Repita los pasos 3 a 5 para configurar un almacén de datos de marcador de posición para el sitio de recuperación.
+

@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-manage-datastore.html 
+sidebar: sidebar 
+keywords: managing, traditional, and, vvols, datastores, 
+summary: 'Puede utilizar la interfaz de VSC para gestionar almacenes de datos tanto tradicionales como de VMware Virtual Volumes (vVols), y realizar operaciones de montaje, cambio de tamaño, edición y eliminación de almacenes de datos.' 
+---
+= Gestión de almacenes de datos tradicionales y vVols
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar la interfaz de VSC para gestionar almacenes de datos tanto tradicionales como de VMware Virtual Volumes (vVols), y realizar operaciones de montaje, cambio de tamaño, edición y eliminación de almacenes de datos.

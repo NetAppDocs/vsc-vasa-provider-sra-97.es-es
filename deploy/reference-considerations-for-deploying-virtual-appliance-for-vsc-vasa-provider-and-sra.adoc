@@ -1,0 +1,113 @@
+---
+permalink: deploy/reference-considerations-for-deploying-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: considerations, requirements, deploying, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'Antes de poner en marcha el dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA), es recomendable planificar la implementación y decidir cómo desea configurar VSC, proveedor VASA y SRA en su entorno.' 
+---
+= Consideraciones y requisitos para implementar el dispositivo virtual para VSC, proveedor VASA y SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de poner en marcha el dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA), es recomendable planificar la implementación y decidir cómo desea configurar VSC, proveedor VASA y SRA en su entorno.
+
+En la siguiente tabla, se presenta información general sobre lo que debe tener en cuenta antes de implementar el dispositivo virtual para VSC, proveedor VASA y SRA.
+
+[cols="1a,1a"]
+|===
+| Consideraciones | Descripción 
+
+
+ a| 
+Puesta en marcha por primera vez del dispositivo virtual para VSC, proveedor VASA y SRA
+ a| 
+La puesta en marcha del dispositivo virtual para VSC, proveedor VASA y SRA instala automáticamente las funciones de VSC. link:concept-deploy-or-upgrade-ontap-tools.html["Poner en marcha o actualizar VSC, proveedor VASA y SRA"^]
+
+link:concept-installation-workflow-for-new-users.html["Flujo de trabajo de puesta en marcha para nuevos usuarios de VSC, proveedores VASA y dispositivos virtuales SRA"^]
+
+
+
+ a| 
+Actualizar desde una puesta en marcha existente de VSC
+ a| 
+El procedimiento de actualización de una puesta en marcha existente de VSC en el dispositivo virtual para VSC, proveedor VASA y SRA depende de la versión de VSC y de si ha puesto en marcha VSC, proveedor VASA y SRA. La sección de flujos de trabajo de implementación y actualización contiene más información. link:concept-installation-workflow-for-existing-users-of-vsc.html["Flujo de trabajo de puesta en marcha para los usuarios existentes de VSC, proveedores VASA y SRA"^]
+
+Prácticas recomendadas antes de una actualización:
+
+* Debe registrar información sobre los sistemas de almacenamiento que se están usando y sus credenciales.
++
+Después de la actualización, debe verificar que todos los sistemas de almacenamiento se detectaron automáticamente y que tienen las credenciales correctas.
+
+* Si modificó alguno de los roles estándar de VSC, debe copiar dichos roles para guardar los cambios.
++
+VSC sobrescribe los roles estándar con los valores predeterminados actuales cada vez que reinicia el servicio VSC.
+
+
+
+
+
+ a| 
+Regeneración de un certificado SSL para VSC
+ a| 
+El certificado SSL se genera automáticamente cuando se pone en marcha el dispositivo virtual para VSC, proveedor VASA y SRA. Es posible que tenga que regenerar el certificado SSL para crear un certificado específico de sitio. link:task-regenerate-an-ssl-certificate-for-vsc.html["Regenere un certificado SSL para"^]
+
+
+
+ a| 
+Configuración de los valores del servidor ESXi
+ a| 
+Aunque la mayoría de los valores del servidor ESXi se establecen de forma predeterminada, es una buena práctica comprobar los valores. Estos valores se basan en pruebas internas. En función de su entorno, es posible que deba cambiar algunos de los valores para mejorar el rendimiento.
+
+* link:task-configure-esx-server-multipathing-and-timeout-settings.html["Configure los valores de multivía y de tiempo de espera del servidor ESXi"^]
+* link:reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html["Los valores de host de ESXi se establecen mediante Virtual Storage Console para VMware vSphere"^]
+
+
+
+
+ a| 
+Valores de tiempo de espera del sistema operativo invitado
+ a| 
+Los scripts de tiempo de espera del sistema operativo invitado (SO invitado) configuran los valores de tiempo de espera de I/o SCSI para sistemas operativos invitados de Linux, Solaris y Windows compatibles con el fin de proporcionar una conducta de conmutación por error correcta.
+
+|===
+En la siguiente tabla, se presenta información general sobre lo que es necesario configurar el dispositivo virtual para VSC, proveedor VASA y SRA.
+
+[cols="1a,1a"]
+|===
+| Consideraciones | Descripción 
+
+
+ a| 
+Requisitos de control de acceso basado en roles (RBAC)
+ a| 
+VSC es compatible con el control de acceso basado en roles de vCenter Server y de ONTAP. La cuenta utilizada para registrar VSC en vCenter Server (mediante `_https_://<appliance_ip>:8143/Register.html`) Debe ser un administrador de vCenter Server (asignado al rol de administrador de vCenter Server o de administrador). Si piensa ejecutar VSC como administrador, debe tener todos los permisos y privilegios necesarios para todas las tareas.
+
+Si la empresa requiere que limite el acceso a objetos de vSphere, puede crear y asignar roles VSC estándar a los usuarios para que cumplan los requisitos de vCenter Server.
+
+Puede crear los roles de ONTAP recomendados mediante el Administrador del sistema de ONTAP mediante el archivo JSON proporcionado con el dispositivo virtual para VSC, proveedor VASA y SRA.
+
+Si un usuario intenta realizar una tarea sin los privilegios y permisos correctos, las opciones de la tarea aparecen atenuadas.
+
+* link:concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html["Roles estándar que se incluyen en el dispositivo virtual para VSC, proveedor VASA y SRA"^]
+* link:concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html["Roles de ONTAP recomendados cuando se usa VSC para VMware vSphere"^]
+
+
+
+
+ a| 
+Versión de ONTAP
+ a| 
+Los sistemas de almacenamiento deben ejecutar ONTAP 9.1, 9.3, 9.5, 9.6 o 9.7.
+
+
+
+ a| 
+Perfiles de funcionalidad de almacenamiento
+ a| 
+Para usar perfiles de funcionalidad de almacenamiento o configurar alarmas, es necesario habilitar VASA Provider para ONTAP. Después de habilitar VASA Provider, es posible configurar almacenes de datos de VMware Virtual Volumes (vVols), y se pueden crear y gestionar perfiles de capacidades de almacenamiento y alarmas.
+
+Las alarmas se avisan cuando un volumen o un agregado tienen una capacidad casi completa o cuando un almacén de datos ya no cumple con el perfil de la funcionalidad de almacenamiento asociada.
+
+|===

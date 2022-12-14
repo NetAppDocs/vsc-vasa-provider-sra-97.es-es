@@ -1,0 +1,32 @@
+---
+permalink: manage/concept-considerations-for-creating-and-editing-storage-capability-profiles.html 
+sidebar: sidebar 
+keywords: considerations, for, creating, and, editing, storage, capability, profiles, 
+summary: Debe tener en cuenta las consideraciones que se deben tener en cuenta para crear y editar perfiles de funcionalidad de almacenamiento. 
+---
+= Consideraciones que tener en cuenta para crear y editar perfiles de funcionalidad de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe tener en cuenta las consideraciones que se deben tener en cuenta para crear y editar perfiles de funcionalidad de almacenamiento.
+
+* Solo puede configurar Min IOPS en sistemas AFF.
+* Es posible configurar métricas de calidad de servicio en un nivel de almacén de datos de volumen virtual (VVol).
++
+Esta funcionalidad proporciona una mayor flexibilidad a la hora de asignar diferentes métricas de calidad de servicio para diferentes VMDK de la misma máquina virtual que se aprovisiona en un almacén de datos virtual.
+
+* Es posible configurar perfiles de funcionalidad de almacenamiento para almacenes de datos FAS y AFF.
++
+Para los sistemas FAS, la reserva de espacio se puede configurar como gruesa o ligera, pero para los sistemas AFF, la reserva de espacio solo se puede configurar como thin.
+
+* Puede usar perfiles de funcionalidad de almacenamiento para proporcionar cifrado para los almacenes de datos.
+* No es posible modificar los perfiles de funcionalidad de almacenamiento existentes después de actualizar desde una versión anterior del dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) a la versión más reciente del dispositivo virtual para VSC, proveedor VASA y SRA.
++
+Los perfiles de funcionalidad de almacenamiento anteriores se conservan para su compatibilidad con versiones anteriores. Si no se están usando las plantillas predeterminadas, durante la actualización a la versión más reciente del dispositivo virtual para VSC, proveedor VASA y SRA, las plantillas existentes se anularán para reflejar las nuevas métricas de calidad de servicio relacionadas con el rendimiento de los perfiles de funcionalidad de almacenamiento.
+
+* No es posible modificar ni utilizar los perfiles de funcionalidad de almacenamiento heredados para aprovisionar nuevos almacenes de datos virtuales ni políticas de almacenamiento de máquinas virtuales.
+* Es necesario usar nuevos perfiles de funcionalidad de almacenamiento para todos los almacenes de datos nuevos.
+

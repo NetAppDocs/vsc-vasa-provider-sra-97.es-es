@@ -1,0 +1,47 @@
+---
+permalink: manage/task-configure-resource-mappings.html 
+sidebar: sidebar 
+keywords: configuring, resource, mappings, 
+summary: Debe asignar los recursos en el sitio protegido y en el sitio de recuperación de modo que las máquinas virtuales estén configuradas para conmutar al nodo de respaldo en un grupo de hosts u otro. 
+---
+= Configure las asignaciones de recursos
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe asignar los recursos en el sitio protegido y en el sitio de recuperación de modo que las máquinas virtuales estén configuradas para conmutar al nodo de respaldo en un grupo de hosts u otro.
+
+.Antes de empezar
+Debe haber conectado los sitios protegidos y de recuperación.
+
+.Acerca de esta tarea
+++ ++
+
+[NOTE]
+====
+En Site Recovery Manager (SRM), los recursos pueden ser pools de recursos, hosts ESXi o clústeres de vSphere.
+
+====
+.Pasos
+. Inicie sesión en su vCenter Server y haga clic en el menú:Site Recovery[Sites].
+. Seleccione su sitio protegido y, a continuación, haga clic en *Administrar*.
+. En la ficha Administrar, seleccione *asignaciones de recursos*.
+. Haga clic en la image:../media/new-resource-mappings.gif[""] icono para crear una nueva asignación de recursos.
++
+Aparece el asistente Create Resource Mapping (Crear asignación de recursos).
+
+. En el asistente *Crear asignación de recursos*, realice lo siguiente:
++
+.. Seleccione *preparar automáticamente asignaciones para recurso con nombres coincidentes* y haga clic en *Siguiente*.
+.. Seleccione los objetos de centro de datos necesarios para los sitios protegidos y de recuperación y haga clic en *Agregar asignaciones*.
+.. Haga clic en *Siguiente* después de crear correctamente las asignaciones.
+.. Seleccione el objeto utilizado anteriormente para crear la asignación inversa y, a continuación, haga clic en *Finalizar*.
+
+
+
+
+.Resultados
+La página Resource Mappings muestra los recursos del sitio protegidos y los recursos del sitio de recuperación. Puede seguir los mismos pasos para otras redes del entorno.

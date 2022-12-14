@@ -1,0 +1,31 @@
+---
+permalink: deploy/task-run-the-gos-timeout-scripts-for-solaris.html 
+sidebar: sidebar 
+keywords: setting, timeout, values, solaris, guest, operating, systems, 
+summary: Los scripts de tiempo de espera del sistema operativo invitado definen los ajustes de tiempo de espera de I/o SCSI para Solaris 10. Puede especificar un tiempo de espera de 60 segundos o un tiempo de espera de 190 segundos. 
+---
+= Defina los valores de tiempo de espera para los sistemas operativos invitados Solaris
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los scripts de tiempo de espera del sistema operativo invitado definen los ajustes de tiempo de espera de I/o SCSI para Solaris 10. Puede especificar un tiempo de espera de 60 segundos o un tiempo de espera de 190 segundos.
+
+.Antes de empezar
+Debe haber montado la imagen ISO que contenga la secuencia de comandos de Solaris.
+
+.Pasos
+. Acceda a la consola de la máquina virtual Solaris e inicie sesión en una cuenta con privilegios de root.
+. Ejecute el `solaris_gos_timeout-install.sh` guión.
++
+Para Solaris 10, se muestra un mensaje similar al siguiente:
+
++
+[listing]
+----
+Setting I/O Timeout for /dev/s–a - SUCCESS!
+----
+. Desmonte la imagen ISO.
+

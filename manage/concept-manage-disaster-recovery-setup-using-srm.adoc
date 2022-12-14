@@ -1,0 +1,16 @@
+---
+permalink: manage/concept-manage-disaster-recovery-setup-using-srm.html 
+sidebar: sidebar 
+keywords: managing, disaster, recovery, setup, by, using, site, recovery, manager, 
+summary: 'Puede crear y gestionar la configuración de recuperación ante desastres en vCenter Server mediante Site Recovery Manager (SRM) junto con Site Recovery Manager (SRM) de VMware.' 
+---
+= Gestione la configuración de la recuperación ante desastres mediante Site Recovery Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible crear y gestionar la configuración de recuperación de desastres en vCenter Server mediante Site Recovery Manager (SRM) junto con Site Recovery Manager (SRM) de VMware.
+
+Esta versión del proveedor de VASA viene ahora integrada con las funcionalidades del adaptador de acción de almacenamiento (SRA). Si ha configurado almacenes de datos vVols en el centro de datos, para la recuperación de almacenes de datos vVols, no es necesario instalar SRA por separado para la recuperación ante desastres. En Site Recovery Manager (SRM), debe emparejar los sitios protegidos y de recuperación. Después de que se haya producido el emparejamiento de sitios, la próxima parte de la configuración de SRM implica configurar un par de cabinas que permite que SRM se comunique con el sistema de almacenamiento para detectar dispositivos y replicación de dispositivos. Para poder configurar el par de matrices, primero debe crear un par de sitios en SRM.

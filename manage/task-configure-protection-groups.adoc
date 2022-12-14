@@ -1,0 +1,62 @@
+---
+permalink: manage/task-configure-protection-groups.html 
+sidebar: sidebar 
+keywords: configuring, protection, groups, 
+summary: Se deben crear grupos de protección para proteger un grupo de máquinas virtuales en el sitio protegido. 
+---
+= Configure los grupos de protección
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se deben crear grupos de protección para proteger un grupo de máquinas virtuales en el sitio protegido.
+
+.Antes de empezar
+Debe asegurarse de que los sitios de origen y destino están configurados para lo siguiente:
+
+* Misma versión de SRM instalada
+* Almacén de datos vVols configurado con la replicación habilitada y montado en el almacén de datos
+* Perfiles de funcionalidad de almacenamiento similares
+* Directivas de almacenamiento de equipos virtuales similares con capacidad de replicación que se deben asignar en SRM
+* Equipos virtuales
+* Sitios protegidos y de recuperación emparejados
+* Los almacenes de datos de origen y destino deben montarse en las ubicaciones respectivas
+
+
+.Pasos
+. Inicie sesión en su vCenter Server y, a continuación, haga clic en menu:Site Recovery[Protection Groups].
+. En el panel *grupos de protección*, haga clic en *Nuevo*.
+. Especifique un nombre y una descripción para el grupo de protección, la dirección y, a continuación, haga clic en *SIGUIENTE*.
+. En el campo *Tipo*, seleccione una de las siguientes opciones:
++
+[cols="1a,1a"]
+|===
+| Durante... | Campo de tipo, opción... 
+
+
+ a| 
+*Almacén de datos tradicional*
+ a| 
+Grupos de almacenes de datos (replicación basada en cabinas)
+
+
+
+ a| 
+*Almacén de datos vVols*
+ a| 
+Volúmenes virtuales (replicación de VVol)
+
+|===
++
+El dominio de fallo no es más que SVM con replicación habilitada. Las SVM que solo tienen implementadas la paridad y sin problemas se muestran.
+
+. En la ficha *grupos de replicación*, seleccione el par de matrices habilitadas o los grupos de replicación que tengan la máquina virtual configurada y, a continuación, haga clic en *SIGUIENTE*.
++
+Todas las máquinas virtuales del grupo de replicación se añaden al grupo de protección.
+
+. Seleccione el plan de recuperación existente o cree un nuevo plan haciendo clic en *Agregar al nuevo plan de recuperación*.
+. En la ficha *preparado para completar*, revise los detalles del grupo de protección que creó y, a continuación, haga clic en *Finalizar*.
+

@@ -1,0 +1,48 @@
+---
+permalink: deploy/task-register-oncommand-api-services-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: virtual, volume, datastores, registering, virtual, appliance, vsc, vasa, provider, sra, 
+summary: 'Si utiliza ONTAP 9.6 o una versión anterior, la consola de VVol puede mostrar los detalles de los almacenes de datos de VMware Virtual Volumes (vVols) y las máquinas virtuales solo si se ha registrado para VASA Provider para obtener datos para los informes de máquina virtual y almacén de datos vVols.' 
+---
+= Regístrese en el dispositivo virtual para VSC, proveedor VASA y SRA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza ONTAP 9.6 o una versión anterior, la consola de VVol puede mostrar los detalles de los almacenes de datos de VMware Virtual Volumes (vVols) y las máquinas virtuales solo si se ha registrado para VASA Provider para obtener datos para los informes de máquina virtual y almacén de datos vVols.
+
+.Antes de empezar
+Debe haber descargado 2.1 o posterior de .
+
+[NOTE]
+====
+La consola de VVol muestra las métricas de rendimiento solo cuando los almacenes de datos DE SAN vVols y las máquinas virtuales se configuran mediante ONTAP 9.3 o posterior.
+
+====
+.Pasos
+. En la página Virtual Storage Console (VSC) *Inicio*, haga clic en *Configuración*.
+. Haga clic en *Administrar extensión* en la ficha *Configuración administrativa*.
+. Utilice el control deslizante *Registrar servicios de API de OnCommand* para activar .
+. Introduzca la dirección IP, el puerto de servicio y las credenciales de .
++
+También puede utilizar el cuadro de diálogo *Administrar extensiones de proveedor VASA* para las siguientes modificaciones:
+
++
+** Para actualizar el registro cuando se produce algún cambio en las credenciales.
+** Para cancelar el registro cuando ya no se requiere la consola de VVol.
++
+Debe desactivar la casilla de verificación *Registrar servicios de API de OnCommand* para eliminar el registro de VASA Provider.
+
+
+
+. Haga clic en *aplicar*.
++
+La consola de VVol muestra las métricas para los almacenes de datos DE SAN VVol ONTAP 9.6 o anteriores solo una vez que se completa el registro del.
+
+
+
+*Información relacionada*
+
+https://mysupport.netapp.com/site/["Soporte de NetApp"^]

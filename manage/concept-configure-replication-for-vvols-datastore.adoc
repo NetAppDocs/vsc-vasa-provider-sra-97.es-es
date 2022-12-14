@@ -1,0 +1,30 @@
+---
+permalink: manage/concept-configure-replication-for-vvols-datastore.html 
+sidebar: sidebar 
+keywords: configuring, replication, for, vvols, datastore, 
+summary: 'Puede configurar la replicación para el almacén de datos vVols mediante el dispositivo virtual para VSC, proveedor VASA y SRA. El objetivo principal de la replicación de vVols es proteger los equipos virtuales críticos durante la recuperación ante desastres mediante VMware Site Recovery Manager (SRM).' 
+---
+= Configurar la replicación para el almacén de datos vVols
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar la replicación para el almacén de datos vVols mediante el dispositivo virtual para VSC, proveedor VASA y SRA. El objetivo principal de la replicación de vVols es proteger los equipos virtuales críticos durante la recuperación ante desastres mediante VMware Site Recovery Manager (SRM).
+
+Sin embargo, para configurar la replicación de vVols para el dispositivo virtual para VSC, VASA Provider y SRA, debe habilitarse la funcionalidad del proveedor VASA y la replicación de vVols. El proveedor DE VASA está habilitado de forma predeterminada en el dispositivo virtual para VSC, proveedor VASA y SRA. La replicación basada en cabina se realiza en el nivel de FlexVol. Cada almacén de datos vVols se asigna a un contenedor de almacenamiento que consta de uno o más volúmenes FlexVol. Los volúmenes de FlexVol deben preconfigurarse con SnapMirror de ONTAP.
+
+[NOTE]
+====
+No debe configurar una combinación de máquinas virtuales protegidas y desprotegidas en un único almacén de datos vVols. Una operación de reprotección después de la recuperación tras fallos provocará la eliminación de las máquinas virtuales no protegidas. Asegúrese de que todas las máquinas virtuales de un almacén de datos vVols están protegidas cuando se utiliza la replicación.
+
+====
+Los grupos de replicación se crean durante el flujo de trabajo de creación de almacenes de datos vVols para cada volumen FlexVol. Para utilizar la replicación vVols, deberá crear directivas de almacenamiento de VM que incluyan el estado y la programación de la replicación junto con el perfil de capacidad de almacenamiento. Un grupo de replicación incluye máquinas virtuales que se replican como parte de la recuperación ante desastres en el sitio de destino. Puede configurar grupos de replicación con grupos de protección y planes de recuperación mediante la consola de SRM para flujos de trabajo de recuperación ante desastres.
+
+[NOTE]
+====
+Si utiliza la recuperación ante desastres para el almacén de datos vVols, no es necesario configurar el adaptador de replicación del almacenamiento (SRA) por separado, ya que la funcionalidad del proveedor VASA se mejora para tener la replicación vVols.
+
+====
+image::../media/vvols-replication.png[replicación vvols]

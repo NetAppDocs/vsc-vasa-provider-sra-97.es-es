@@ -1,0 +1,26 @@
+---
+permalink: deploy/concept-vmware-fault-tolerance-for-vcenter-server.html 
+sidebar: sidebar 
+keywords: vsc, vmware, vsphere, fault, tolerance, 
+summary: 'La función DE tolerancia a fallos (FT) de VMware vSphere proporciona (ha) a un nivel superior y le permite proteger las máquinas virtuales sin que se pierdan datos o conexiones. Debe habilitar o deshabilitar vSphere FT para el dispositivo virtual para VSC, proveedor VASA y SRA en vCenter Server.' 
+---
+= Tolerancia a fallos de VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función DE tolerancia a fallos (FT) de VMware vSphere proporciona (ha) a un nivel superior y le permite proteger las máquinas virtuales sin que se pierdan datos o conexiones. Debe habilitar o deshabilitar vSphere FT para el dispositivo virtual para VSC, proveedor VASA y SRA en vCenter Server.
+
+Compruebe que la licencia de vSphere sea compatible CON FT con el número de vCPU necesarias para el dispositivo virtual en su entorno (al menos 2 vCPU y 4 vCPU para entornos a gran escala).
+
+VSphere FT permite que las máquinas virtuales funcionen continuamente incluso durante fallos de servidores. Cuando se habilita vSphere FT en una máquina virtual, se crea automáticamente una copia de la máquina virtual primaria en otro host (la máquina virtual secundaria) seleccionado por Distributed Resource Scheduler (DRS). Si DRS no está habilitado, el host de destino se selecciona de entre los hosts disponibles. VSphere FT opera la máquina virtual principal y la máquina virtual secundaria en modo de bloqueo, con cada mirroring del estado de ejecución de la máquina virtual principal a la máquina virtual secundaria.
+
+Cuando se produce un error de hardware que provoca un fallo en la máquina virtual primaria, la máquina virtual secundaria recupera inmediatamente dónde se detuvo la máquina virtual principal. La máquina virtual secundaria continúa ejecutándose sin pérdida de conexiones de red, transacciones o datos.
+
+El sistema debe cumplir los requisitos de CPU, los requisitos de límite de máquinas virtuales y los requisitos de licencias para configurar vSphere FT para la instancia de vCenter Server.
+
+El procedimiento para configurar la alta disponibilidad depende de la versión del servidor de vCenter Server. Por ejemplo, puede utilizar el siguiente enlace de referencia y seleccionar la versión necesaria de vCenter Server para ver los pasos necesarios para configurar la alta disponibilidad.
+
+https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.avail.doc/GUID-57929CF0-DA9B-407A-BF2E-E7B72708D825.html["Documentación de VMware vSphere: Requisitos, límites y licencias de Fault Tolerance"^]

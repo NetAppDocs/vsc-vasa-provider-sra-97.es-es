@@ -1,0 +1,38 @@
+---
+permalink: manage/task-check-for-datastore-compliance-with-the-mapped-storage-capability-profile.html 
+sidebar: sidebar 
+keywords: verifying, datastore, compliance, with, the, mapped, storage, capability, profile, 
+summary: Puede verificar rápidamente si sus almacenes de datos cumplen con los perfiles de funcionalidad de almacenamiento asignados a los almacenes de datos. 
+---
+= Compruebe que los almacenes de datos cumplen con el perfil de funcionalidad de almacenamiento asignado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede verificar rápidamente si sus almacenes de datos cumplen con los perfiles de funcionalidad de almacenamiento asignados a los almacenes de datos.
+
+.Antes de empezar
+* Debe haber registrado la instancia del proveedor de VASA en Virtual Storage Console para VMware vSphere (VSC).
+* VSC debe haber detectado el almacenamiento.
+
+
+.Pasos
+. En la página VSC *Inicio*, haga clic en *asignación de almacenamiento*.
+. Revise la información de la columna *Estado de cumplimiento* para identificar almacenes de datos no compatibles y revise las alertas por motivos de incumplimiento.
++
+[NOTE]
+====
+Al hacer clic en el botón *COMPROBACIÓN de CUMPLIMIENTO*, VSC realiza una operación de redetección de todo el almacenamiento, que puede tardar unos minutos.
+
+====
++
+Si un almacén de datos ya no es compatible con su perfil, la columna *Estado de cumplimiento* muestra una alerta que indica la razón del incumplimiento. Por ejemplo, un perfil puede requerir compresión. Si se modificó esa configuración en el almacenamiento, no se utilizará la compresión y el almacén de datos no será compatible.
+
+
+
+.Después de terminar
+Cuando se detecta un almacén de datos que no cumple con su perfil, es posible modificar la configuración del volumen que respalda el almacén de datos para que sea compatible con ese almacén de datos, o bien es posible asignar un perfil nuevo al almacén de datos.
+
+Puede modificar la configuración desde la página *Perfil de capacidad de almacenamiento*.

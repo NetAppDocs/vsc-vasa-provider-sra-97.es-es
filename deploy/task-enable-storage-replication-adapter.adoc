@@ -1,0 +1,70 @@
+---
+permalink: deploy/task-enable-storage-replication-adapter.html 
+sidebar: sidebar 
+keywords: enabling, storage, replication, adapter, 
+summary: 'El dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) proporciona la opción de permitir que la funcionalidad SRA se use con VSC para configurar la recuperación ante desastres.' 
+---
+= Habilite Storage Replication Adapter
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) proporciona la opción de permitir que la funcionalidad SRA se use con VSC para configurar la recuperación ante desastres.
+
+.Antes de empezar
+* Debe haber configurado la instancia de vCenter Server y ESXi.
+* Debe haber implementado el dispositivo virtual para VSC, proveedor VASA y SRA.
+* Debe haber descargado el `.msi` Archivo del plugin de SRA o del `.tar.gz` File para SRM Appliance solo si desea configurar la solución de recuperación ante desastres de Site Recovery Manager (SRM).
++
+https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html["Site Recovery Manager instalación y configuración Site Recovery Manager 8.2"^] tiene más información.
+
+
+
+.Acerca de esta tarea
+La flexibilidad para habilitar las funcionalidades VASA Provider y SRA le permite ejecutar solo los flujos de trabajo necesarios para la empresa.
+
+.Pasos
+. Inicie sesión en la interfaz de usuario web de VMware vSphere.
+. En vSphere Client, haga clic en MENU:Menu[Virtual Storage Console].
+. Haga clic en *Configuración*.
+. Haga clic en *Administrar capacidades* en la ficha *Configuración administrativa*.
+. En el cuadro de diálogo *Administrar capacidades*, seleccione la extensión SRA que desee activar.
+. Introduzca la dirección IP del dispositivo virtual para VSC, VASA Provider y SRA y la contraseña de administrador y, a continuación, haga clic en *Apply*.
+. Puede usar uno de los siguientes métodos para implementar el SRA:
++
+[cols="1a,1a"]
+|===
+| Opción | Descripción 
+
+
+ a| 
+Para SRM de Windows
+ a| 
+.. Haga doble clic en el descargado `.msi` Instalador del plugin SRA.
+.. Siga las instrucciones que aparecen en pantalla.
+.. Introduzca la dirección IP y la contraseña del dispositivo virtual implementado.
+
+
+
+
+ a| 
+Para dispositivo SRM
+ a| 
+.. Acceda a la página del dispositivo SRM y, a continuación, vaya a la página *Adaptadores de replicación de almacenamiento* del dispositivo SRM.
+.. Haga clic en *Nuevo adaptador*.
+.. Cargue el instalador .tar.gz del plugin de SRA en SRM.
+.. Vuelva a analizar los adaptadores para verificar que los detalles se actualizan en la página SRM *adaptadores de replicación de almacenamiento*.
+
+
+|===
++
+Debe cerrar la sesión en vSphere Client y, a continuación, volver a iniciar sesión para verificar que la extensión seleccionada esté disponible para la configuración.
+
+
+
+*Información relacionada*
+
+xref:concept-configure-storage-replication-adapter-for-disaster-recovery.adoc[Configure Storage Replication Adapter para la recuperación ante desastres]

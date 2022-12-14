@@ -1,0 +1,46 @@
+---
+permalink: manage/task-monitor-datastores-using-the-traditional-dashboard.html 
+sidebar: sidebar 
+keywords: monitoring, datastores, virtual, machines, using, the, traditional, dashboard, 
+summary: Puede supervisar los almacenes de datos tradicionales y las máquinas virtuales mediante la consola tradicional del dispositivo virtual de Virtual Storage Console, VASA Provider y el adaptador de replicación de almacenamiento. Los datos de la consola le permiten analizar el uso del almacén de datos y realizar acciones correctivas para evitar que las máquinas virtuales se ejecuten en restricciones relacionadas con el espacio. 
+---
+= Supervise almacenes de datos y máquinas virtuales mediante la consola tradicional
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede supervisar los almacenes de datos tradicionales y las máquinas virtuales mediante la consola tradicional del dispositivo virtual de Virtual Storage Console, VASA Provider y el adaptador de replicación de almacenamiento. Los datos de la consola le permiten analizar el uso del almacén de datos y realizar acciones correctivas para evitar que las máquinas virtuales se ejecuten en restricciones relacionadas con el espacio.
+
+.Antes de empezar
+Debe seleccionar la opción *Activar control de E/S de almacenamiento y recopilación de estadísticas* o *Desactivar control de E/S de almacenamiento pero habilitar recopilación de estadísticas* en el cuadro de diálogo Configurar control de E/S de almacenamiento. Solo es posible habilitar Storage I/o Control si tiene la licencia Enterprise Plus de VMware.
+
+https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.resmgmt.doc/GUID-BB5D9BAB-9E0E-4204-A76A-54634CD8AD51.html["Documentación de VMware vSphere: Habilitar Storage I/o Control"^]
+
+.Acerca de esta tarea
+La consola de VSC muestra las métricas de IOPS, espacio utilizado, latencia y capacidad comprometida que se obtienen en vCenter Server. ONTAP proporciona métricas de ahorro de espacio de volúmenes a la consola de VSC. Estos parámetros de rendimiento le permiten identificar cuellos de botella de rendimiento en el entorno virtual y realizar acciones correctivas para resolver los problemas.
+
+La consola tradicional del dispositivo virtual para VSC, proveedores VASA y SRA permite ver almacenes de datos NFS o almacenes de datos VMFS. Es posible hacer clic en un almacén de datos para desplazarse a la vista de detalles del almacén de datos que proporciona la instancia de vCenter Server para ver y corregir cualquier problema con los almacenes de datos en vCenter Server.
+
+.Pasos
+. En la página de inicio de vSphere Client, haga clic en *Virtual Storage Console*.
+. Seleccione la instancia de vCenter Server requerida mediante el menú desplegable *vCenter Server* para ver los almacenes de datos.
+. Haga clic en *Panel tradicional*.
++
+El portlet *datastores* ofrece los siguientes detalles:
+
++
+** El número de almacenes de datos tradicionales junto con sus métricas de rendimiento que gestiona VSC en su instancia de vCenter Server
+** Los cinco almacenes de datos principales según los parámetros de uso y rendimiento de los recursos que se pueden modificar, si es necesario, puede cambiar la lista de los almacenes de datos según el espacio utilizado, IOPS o latencia y el orden requerido.
+
+
++
+El portlet *Máquinas virtuales* proporciona los siguientes detalles:
+
++
+** Número de máquinas virtuales que utilizan almacenes de datos de NetApp en vCenter Server
+** Las cinco máquinas virtuales más importantes basadas en la capacidad, la latencia y el tiempo de actividad prometidos
+
+
+

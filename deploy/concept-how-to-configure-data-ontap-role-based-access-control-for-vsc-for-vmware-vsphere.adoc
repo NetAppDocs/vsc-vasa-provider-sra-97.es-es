@@ -1,0 +1,91 @@
+---
+permalink: deploy/concept-how-to-configure-data-ontap-role-based-access-control-for-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: configure, ontap, role-based, access, control, vsc, vmware, vsphere, 
+summary: 'Debe configurar el control de acceso basado en roles de ONTAP en el sistema de almacenamiento si desea utilizar el control de acceso basado en roles con Virtual Storage Console para VMware vSphere (VSC). Es posible crear una o varias cuentas de usuario personalizadas con privilegios de acceso limitados mediante la función RBAC de ONTAP.' 
+---
+= Cómo configurar el control de acceso basado en roles de ONTAP para VSC para VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe configurar el control de acceso basado en roles de ONTAP en el sistema de almacenamiento si desea utilizar el control de acceso basado en roles con Virtual Storage Console para VMware vSphere (VSC). Es posible crear una o varias cuentas de usuario personalizadas con privilegios de acceso limitados mediante la función RBAC de ONTAP.
+
+VSC y SRA pueden acceder a los sistemas de almacenamiento a nivel de clúster o de. Si va a añadir sistemas de almacenamiento en el nivel del clúster, debe proporcionar las credenciales del usuario administrador para proporcionar todas las funcionalidades necesarias. Si va a añadir sistemas de almacenamiento agregando detalles directamente, debe ser consciente de que el usuario "'vsadmin'" no tiene todos los roles y capacidades requeridos para realizar ciertas tareas.
+
+EL proveedor DE VASA puede acceder a los sistemas de almacenamiento únicamente en el nivel del clúster. Si se requiere un proveedor de VASA para una controladora de almacenamiento en particular, debe añadir el sistema de almacenamiento a VSC en el nivel del clúster aunque utilice VSC o SRA.
+
+Para crear un usuario nuevo y conectar un clúster o un a VSC, proveedor VASA y SRA, debe realizar lo siguiente:
+
+* Cree un administrador de clúster o un rol de administrador
++
+[NOTE]
+====
+Es posible usar uno de los siguientes para crear estos roles:
+
+** ONTAP System Manager 9.7 o posterior
+
+
+link:task-configure-user-role-and-privileges.html["Configure los roles y privilegios de usuario"^]
+
+** Herramienta de creación de usuarios de RBAC para ONTAP (si se usa ONTAP 9.6 o una versión anterior)
+
+
+link:https://community.netapp.com/t5/Virtualization-Articles-and-Resources/RBAC-User-Creator-tool-for-VSC-VASA-Provider-and-Storage-Replication-Adapter-7-0/ta-p/133203/t5/Virtualization-Articles-and-Resources/How-to-use-the-RBAC-User-Creator-for-Data-ONTAP/ta-p/86601["Herramienta RBAC User Creator para VSC, proveedor VASA y Storage Replication Adapter 7.0 para VMware vSphere"^]
+
+====
+* Cree usuarios con el rol asignado y el conjunto de aplicaciones adecuado mediante ONTAP
++
+Es necesario contar con estas credenciales del sistema de almacenamiento para configurar los sistemas de almacenamiento para VSC. Puede configurar sistemas de almacenamiento para VSC introduciendo las credenciales en VSC. Cada vez que inicie sesión en un sistema de almacenamiento con estas credenciales, tendrá permisos sobre las funciones VSC que haya configurado en ONTAP al crear las credenciales.
+
+* Añada el sistema de almacenamiento a VSC y proporcione las credenciales del usuario que acaba de crear
+
+
+
+
+== Roles de VSC
+
+VSC clasifica los privilegios de ONTAP en el siguiente conjunto de funciones de VSC:
+
+* Detección
++
+Permite la detección de todas las controladoras de almacenamiento conectadas
+
+* Cree almacenamiento
++
+Permite la creación de volúmenes y número de unidad lógica (LUN).
+
+* Modificar almacenamiento
++
+Permite redimensionar y deduplicar los sistemas de almacenamiento
+
+* Destruya el almacenamiento
++
+Permite la destrucción de volúmenes y LUN
+
+
+
+
+
+== Roles del proveedor DE VASA
+
+Solo puede crear gestión basada en políticas en el nivel de clúster. Este rol permite la gestión basada en políticas del almacenamiento mediante perfiles de capacidades de almacenamiento.
+
+
+
+== Roles SRA
+
+El SRA clasifica los privilegios del ONTAP en un rol DE SAN o NAS a nivel de clúster o de. Esto permite a los usuarios ejecutar operaciones de SRM.
+
+[NOTE]
+====
+Debe consultar los artículos de la base de conocimientos si desea configurar manualmente roles y privilegios mediante comandos ONTAP.
+
+====
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/VSC%2C_VASA%2C_and_SRA_7.0_ONTAP_RBAC_Configuration_Version_1["Configuración de RBAC de ONTAP para VSC, VASA y SRA 7.0"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/Roll_up_of_all_commands_for_VSC_and_SRA_for_SVM_level["Implementación de todos los comandos para VSC y SRA en nivel de SVM"^]
+
+
+VSC realiza una validación de privilegios inicial de los roles de control de acceso basado en roles de ONTAP cuando se añade el clúster a VSC. Si ha añadido una IP de almacenamiento directo, VSC no realizará la validación inicial. VSC comprueba y aplica los privilegios más adelante en el flujo de trabajo de las tareas.

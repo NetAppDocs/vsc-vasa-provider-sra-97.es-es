@@ -1,0 +1,20 @@
+---
+permalink: deploy/concept-vmware-high-availability-for-vcenter-server.html 
+sidebar: sidebar 
+keywords: vsc, vmware, vsphere, ha, 
+summary: 'Es posible configurar el entorno de vSphere donde el dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) se ponga en marcha para (ha). La función de alta disponibilidad de VMware ofrece protección tras fallos frente a fallos del hardware y fallos del sistema operativo en entornos virtuales.' 
+---
+= VMware vSphere ha
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible configurar el entorno de vSphere donde el dispositivo virtual para Virtual Storage Console (VSC), el proveedor VASA y el adaptador de replicación de almacenamiento (SRA) se ponga en marcha para (ha). La función de alta disponibilidad de VMware ofrece protección tras fallos frente a fallos del hardware y fallos del sistema operativo en entornos virtuales.
+
+La función de alta disponibilidad de VMware supervisa las máquinas virtuales para detectar fallos del sistema operativo y fallos del hardware. Cuando se detecta un fallo, la función de alta disponibilidad de VMware reinicia las máquinas virtuales en los demás servidores físicos del pool de recursos. No es necesaria la intervención manual cuando se detecta un fallo del servidor.
+
+El procedimiento para configurar VMware ha depende de la versión de su vCenter Server. Por ejemplo, puede utilizar el siguiente enlace de referencia y seleccionar la versión necesaria de vCenter Server para ver los pasos necesarios para configurar la alta disponibilidad de VMware.
+
+https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.avail.doc/GUID-5432CA24-14F1-44E3-87FB-61D937831CF6.html["Documentación de VMware vSphere: Crear y usar clústeres de alta disponibilidad de vSphere"^]

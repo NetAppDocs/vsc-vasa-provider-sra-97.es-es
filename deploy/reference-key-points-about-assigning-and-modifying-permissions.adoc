@@ -1,0 +1,45 @@
+---
+permalink: deploy/reference-key-points-about-assigning-and-modifying-permissions.html 
+sidebar: sidebar 
+keywords: key, points, about, assigning, modifying, permissions, vcenter, server, 
+summary: Hay varios puntos clave que se deben tener en cuenta cuando se trabaja con permisos de vCenter Server. Si una tarea de Virtual Storage Console para VMware vSphere se realiza correctamente puede depender de la ubicación en la que se asignó un permiso o de las acciones que realizó un usuario después de modificar un permiso. 
+---
+= Puntos clave sobre la asignación y modificación de permisos para vCenter Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Hay varios puntos clave que se deben tener en cuenta cuando se trabaja con permisos de vCenter Server. Si una tarea de Virtual Storage Console para VMware vSphere se realiza correctamente puede depender de la ubicación en la que se asignó un permiso o de las acciones que realizó un usuario después de modificar un permiso.
+
+
+
+== Asignación de permisos
+
+Solo debe configurar permisos de vCenter Server si desea limitar el acceso a los objetos y tareas de vSphere. De lo contrario, puede iniciar sesión como administrador. Este inicio de sesión permite acceder automáticamente a todos los objetos de vSphere.
+
+Donde se asigna un permiso determina las tareas de VSC que puede ejecutar un usuario.
+
+A veces, para garantizar la finalización de una tarea, debe asignar el permiso a un nivel superior, como el objeto raíz. Es así cuando una tarea requiere un privilegio que no se aplica a un objeto de vSphere específico (por ejemplo, un seguimiento de la tarea) o cuando un privilegio requerido se aplica a un objeto que no es vSphere (por ejemplo, un sistema de almacenamiento).
+
+En estos casos, puede configurar un permiso para que sea heredado por las entidades secundarias. También puede asignar otros permisos a las entidades secundarias. El permiso asignado a una entidad hijo siempre anula el permiso heredado de la entidad padre. Esto significa que puede tener permisos para una entidad secundaria como una manera de restringir el ámbito de un permiso que se asignó a un objeto raíz y que la entidad secundaria hereda.
+
+
+TIP: A menos que las políticas de seguridad de la empresa requieran permisos más restrictivos, es recomendable asignar permisos al objeto raíz (también denominado carpeta raíz).
+
+
+
+== Permisos y objetos que no son de vSphere
+
+El permiso que crea se aplica a un objeto que no sea de vSphere. Por ejemplo, un sistema de almacenamiento no es un objeto de vSphere. Si se aplica un privilegio a un sistema de almacenamiento, debe asignar el permiso que contiene ese privilegio al objeto raíz de VSC porque no hay ningún objeto de vSphere al cual pueda asignarlo.
+
+Por ejemplo, todos los permisos que incluyan un privilegio, como el privilegio VSC "Add/Modify/Skip Storage systems", se deben asignar en el nivel de objetos raíz.
+
+
+
+== Modificar permisos
+
+Puede modificar un permiso en cualquier momento.
+
+Si cambia los privilegios dentro de un permiso, el usuario asociado con ese permiso debe cerrar la sesión y, a continuación, volver a iniciar la sesión para habilitar el permiso actualizado.
