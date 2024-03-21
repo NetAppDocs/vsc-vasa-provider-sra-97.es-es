@@ -783,7 +783,6 @@
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">Los archivos de notificación proporcionan información sobre los derechos de autor y las licencias de terceros que se utilizan en software de NetApp.</block>
   <block id="03102cb1a40f8db1f140e7b6b56e5376" category="inline-link">Aviso de Virtual Storage Console para VMware vSphere 9.7.1</block>
   <block id="6c2b2f2e12a6dc9726b633b71455b4a8" category="paragraph"><block ref="6c2b2f2e12a6dc9726b633b71455b4a8" category="inline-link-rx"></block></block>
-  <block id="bc61d0b08d1fd7734eecaba3c782ee73" category="summary">Documentación de Virtual Storage Console para VMware vSphere, documentos de VSC y documentación de VSC</block>
   <block id="2a72439647125372a883f6f62a3b3b97" category="doc">VSC, proveedor VASA y documentación de SRA</block>
   <block id="03b923e236bdb5ddb7f2809b76445352" category="summary">Puede utilizar la función de actualización que ofrece Virtual Storage Console para VMware vSphere para actualizar la información sobre los sistemas de almacenamiento y forzar Virtual Storage Console (VSC) a detectar sistemas de almacenamiento.</block>
   <block id="aa9742a8c89b1a51af38fb3122936dfa" category="doc">Actualice la pantalla del sistema de almacenamiento</block>
@@ -1858,4 +1857,7 @@
   <block id="dec3e9da01f86a71bed912a019fad778" category="sidebar">El estado DEL proveedor DE VASA se muestra como "sin conexión" en la interfaz gráfica de usuario de vCenter Server</block>
   <block id="07a4e02530218bb020bf2b5915f43cde" category="sidebar">configurar los scripts del sistema operativo invitado</block>
   <block id="d036f2c382984088af9c7b41532db232" category="sidebar">Requisitos para registrar VSC en varios entornos de vCenter Server</block>
+  <block id="59b25b58a320cb1bd7e03ff77563a7d1" category="sidebar">Virtual Storage Console para VSC, proveedor VASA y SRA permiten configurar, gestionar y proteger sus almacenes de datos virtuales en su entorno de vCenter Server.</block>
+  <block id="457ec720234469b4fc2740e0d3e8b0bc" category="sidebar">Documentación de Virtual Storage Console para VMware vSphere, documentos de VSC y documentación de VSC.</block>
+  <block id="43fe6507a14726ae86f2c7d411f9b929" category="sidebar">Documentación para herramientas de ONTAP para VMware vSphere</block>
 </blocks>

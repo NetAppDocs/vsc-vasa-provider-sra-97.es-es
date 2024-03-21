@@ -5,18 +5,15 @@ keywords: qsg, ontap tools for vmware vsphere, quick start guide, installing
 summary: Proporciona información general sobre los requisitos de puesta en marcha y instrucciones paso a paso para poner en marcha el dispositivo virtual para Virtual Storage Console, el proveedor VASA y el adaptador de replicación de almacenamiento para VMware vSphere. 
 ---
 = Inicio rápido
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
 :experimental: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]
