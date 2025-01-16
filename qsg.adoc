@@ -248,8 +248,7 @@ Puede consultar la guía de implementación y configuración de Virtual Storage 
 
 == Dónde encontrar información adicional
 
-* https://www.netapp.com/support-and-training/documentation/ontap-tools-for-vmware-vsphere-documentation/?&access=a["Virtual Storage Console, proveedor VASA y Storage Replication Adapter para recursos de VMware vSphere"^]
-* https://docs.netapp.com/vapp-97/index.jsp["Documentación de Virtual Storage Console, proveedor VASA y Storage Replication Adapter para VMware vSphere"^]
+* https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html["Documentación de las herramientas de ONTAP para VMware vSphere"^]
 * https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html["VMware Site Recovery Manager 8.2"^]
 * https://docs.netapp.com/us-en/ontap/["Documentación de ONTAP 9"^]
 
